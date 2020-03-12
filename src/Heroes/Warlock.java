@@ -1,4 +1,4 @@
-package Hero;
+package Heroes;
 
 public class Warlock extends Hero {
     @Override

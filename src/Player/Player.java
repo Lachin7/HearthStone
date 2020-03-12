@@ -6,11 +6,12 @@ public class Player {
 
     public String PlayerName;
     public String PlayerPassword;
+    Boolean IsSignedin = false;
     public int PlayerCoins = 50;
     // players carts
 
     Scanner scanner = new Scanner(System.in);
-    public void SignIn(){
+    public void Signup(){
         boolean flagName = false;
         boolean flagPass = false;
 
@@ -37,10 +38,11 @@ public class Player {
             }
 
         }
+        IsSignedin = true;
 
     }
 
-    public void LogIn(){
+    public void Signin(){
         boolean flagName = false;
         boolean flagPass = false;
 
@@ -67,10 +69,60 @@ public class Player {
             }
 
         }
+        IsSignedin = true;
     }
 
-    public void Logout(){
-        PlayerName = null;
-        PlayerPassword = null;
+    public void deletThePlayer(){
+        Scanner scanner = new Scanner(System.in);
+        if(this.IsSignedin == true) {
+            Boolean isvalid = false;
+            while (!isvalid) {
+                System.out.println("Enter your Password");
+                String pass = scanner.nextLine();
+                if (pass == this.PlayerPassword) {
+                    isvalid = true;
+                    // delte the info for this player
+                    System.exit(0);
+                } else {
+                    System.out.println("Wrong password! ");
+                }
+
+            }
+        }
+        else{
+                System.out.println("you have to sign in first");
+            }
+
     }
+
+    public void goToMenues(){
+        System.out.println("which Menu do you want to go(collections/store)?");
+        Scanner scanner = new Scanner(System.in);
+        String MenuName = scanner.nextLine();
+        Boolean isValidName = false;
+
+        while (!isValidName) {
+
+            switch (MenuName) {
+                case "collections": {
+                    isValidName = true;
+                    // show all your cards
+                    System.out.println();
+
+                    break;
+                }
+                case "store": {
+                    isValidName = true;
+                    // all the cards u dony own or have sold
+                    break;
+                }
+                default:{
+                    System.out.println("invalid Menu name! Try again..");
+                }
+
+            }
+        }
+    }
+
+
 }

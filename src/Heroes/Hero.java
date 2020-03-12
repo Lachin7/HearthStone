@@ -1,4 +1,4 @@
-package Hero;
+package Heroes;
 
 public abstract class Hero {
     int HP = 30;

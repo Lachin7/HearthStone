@@ -1,6 +1,4 @@
-package Hero;
-
-import Hero.Hero;
+package Heroes;
 
 public class Mage extends Hero {
     @Override
