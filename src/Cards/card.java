@@ -37,7 +37,7 @@ public class card {
         MAGE,ROGUE,WARLOCK,NEUTRAL
     }
     public enum type {
-        MINION,SPELL, WEAPON, MISSION
+        MINION,SPELL, WEAPON
     }
 
     card(int manaCost, String name,String description, rarity rarity, heroClass heroClass,type type){
