@@ -1,4 +1,4 @@
-package Cards.ClassCards.Warlock;
+package JSON.jsonForCards;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static JSON.fileTOjson.fileTOjson.convertFileToJsonForCards;
+import static JSON.jsonForCards.jsonForCards.convertFileToJsonForCards;
 
 public class jsonForWarlock {
 

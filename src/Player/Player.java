@@ -3,35 +3,33 @@ package Player;
 import Cards.card;
 import Exceptions.PlayerAlreadyExistsException;
 import Exceptions.PlayerNotFoundException;
-import org.json.simple.JSONArray;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.json.simple.JSONObject;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static Player.jsonForPlayers.PlayersJList;
+import static JSON.jsonForPlayers.jsonForPlayers.*;
 
 public class Player {
-
+/** defining fields in Player class */
     private String PlayerName;
+    private String PlayerPassword;
+    private int PlayerCoins;
+    public ArrayList<card> ALLPlayersCards = new ArrayList<>();
+    /** defining getters and setters for the fields  */
     public String getPlayerName() {
         return PlayerName;
     }
     public void setPlayerName(String playerName) {
         PlayerName = playerName;
     }
-
-    private String PlayerPassword;
     public String getPlayerPassword() {
         return PlayerPassword;
     }
     public void setPlayerPassword(String playerPassword) {
         PlayerPassword = playerPassword;
     }
-
-    private int PlayerCoins = 50;
     public int getPlayerCoins() {
         return PlayerCoins;
     }
@@ -39,12 +37,10 @@ public class Player {
         PlayerCoins = playerCoins;
     }
 
-    ArrayList<card> PlayersCards = new ArrayList<>();
-
     Boolean IsSignedin = false;
     Scanner scanner = new Scanner(System.in);
 
-    public void Signup()throws PlayerAlreadyExistsException{
+    public void Signup(){
         boolean flagName = false;
         boolean flagPass = false;
 
@@ -64,34 +60,24 @@ public class Player {
                 System.out.println("Sorry this name is taken, Try something else..");
             }
         }
-        while (!flagPass){
+        while (!flagPass) {
             try {
                 System.out.println("Creat your password: ");
                 PlayerPassword = scanner.nextLine();
                 //check if players password is legal
                 flagPass = true;
-            }
-            catch (Exception e2){
+            } catch (Exception e2) {
                 System.out.println("Password should be beetwin 8-16 characters, Try again..");
             }
         }
-        IsSignedin = true;
-
         /** mkiang a json file for this player */
-        JSONObject playerInfo = new JSONObject();
-        playerInfo.put("PlayerName",""+PlayerName);
-        playerInfo.put("PlayerPassword",""+PlayerPassword);
-        playerInfo.put("PlayerCoins", new Integer(50));
-        playerInfo.put("PlayersCards","" /** TODO */);
-
-        JSONObject PlayerObject = new JSONObject();
-        PlayerObject.put("Player", playerInfo);
-
-        PlayersJList.add(PlayerObject);
-
+        this.setPlayerCoins(50);
+        jsonTOfile_player(this);
+        IsSignedin = true;
+        System.out.println("you are signed up successfully! BEGIN YOUR JOURNEY IN HEARTH STONE!!");
     }
 
-    public void Signin() throws PlayerNotFoundException{
+    public void Signin(){
         boolean flagName = false;
         boolean flagPass = false;
         String CorrespondingPassword="";
@@ -123,9 +109,7 @@ public class Player {
             try {
                 System.out.println("Enter your password: ");
                 PlayerPassword = scanner.nextLine();
-                //check if players
                 /**check if players password is correct for the corresponding name ...*/
-                boolean thePasswordExists = false;
                 if (PlayerPassword != CorrespondingPassword){
                     throw new PlayerNotFoundException();
                 }
@@ -135,10 +119,15 @@ public class Player {
                 System.out.println("Wrong password , Try again..");
             }
         }
+        jsonFileReader(this);
         IsSignedin = true;
-
-
+        System.out.println("you are signed in successfully! WELCOME BACK "+PlayerName+" !!");
     }
+
+    public void test(){
+        Signup();
+    }
+
 
     public void Singout(){
 
