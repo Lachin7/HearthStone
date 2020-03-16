@@ -1,6 +1,9 @@
-import CLI.gameCLI;
+import cliAndMenus.gameCLI;
 
 public class Main {
-  //  gameCLI gamecli = new gameCLI;
-   // gameCLI.startTheApp();
+
+    public static void main(String[] args) {
+        gameCLI gamecli = gameCLI.getInstance();
+        gamecli.startTheApp();
+    }
 }

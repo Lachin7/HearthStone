@@ -1,8 +1,14 @@
 package Heroes;
 
-public abstract class Hero {
-    int HP = 30;
-   abstract void HeroPower();
-//special power
+public class  Hero {
+   protected long HP;
+   public long getHP() {
+      return HP;
+   }
+   public void setHP(long HP) {
+      this.HP = HP;
+   }
+
+   public void SpecialPower(){}
 }
 
