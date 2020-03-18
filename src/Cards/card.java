@@ -1,18 +1,25 @@
 package Cards;
-import Heroes.HeroClass;
+
+import com.google.gson.annotations.Expose;
+import java.io.IOException;
+import java.util.logging.Logger;
+
+import static JSON.jsonForCards.jsonForCards.jsonFileMakerForCards;
 
 public class card {
+    private static final Logger LOGGER = Logger.getLogger( card.class.getName() );
     /** defining fields here */
-    private long manaCost ;
-    private String name , description;
-    private static rarity rarity;
-    private type type;
-    private HeroClass heroClass;
+    @Expose private int manaCost ;
+    @Expose private String name , description;
+    @Expose private rarity rarity;
+    @Expose private type type;
+    @Expose private HeroClass heroClass;
+    @Expose private int price;
     /** defining getters and setters here */
-    public long getManaCost() {
+    public int getManaCost() {
         return manaCost;
     }
-    public void setManaCost(long mana) {
+    public void setManaCost(int mana) {
         manaCost = mana;
     }
     public String getName() {
@@ -39,43 +46,68 @@ public class card {
     public void setType(card.type type) {
         this.type = type;
     }
+    public int getPrice() {
+        return price;
+    }
+
     /** defining relevant enums and classes here */
     public enum rarity {
-        COMMON,RARE,EPIC,LEGENGARY
-
+        COMMON,RARE,EPIC,LEGENDARY
     }
 
     public enum type {
         MINION,SPELL, WEAPON
     }
+
+    public enum  HeroClass {
+        MAGE,WARLOCK,ROGUE,NEUTRAL;
+
+        @Override
+        public String toString() {
+            return this.name() + "";
+        }
+    }
+
     /** defining constructor here */
-    card(long manaCost, String name, String description, rarity rarity, HeroClass heroClass, type type){
+    public card(int manaCost, String name, String description, rarity rarity, HeroClass heroClass, type type , int price){
         this.manaCost = manaCost;
         this.name = name;
         this.description = description;
         this.rarity = rarity;
         this.heroClass = heroClass;
         this.type = type;
+        this.price = price;
     }
+
     /** defining methods here */
     @Override
     public String toString() {
-         return "* {   Card name : "+ this.name + ", mana Cost : "+ this.manaCost + ", hero Calss : " + this.heroClass + ", type : " + this.type + ", rarity : " + this.rarity + ", description : " + this.description + "} * ";
+       //  return "\" {Card name : \""    + "\"" + this.name + "\""   + "\"" +", mana Cost :"+ "\""   + "\""  + this.manaCost + ", hero Calss : " + "\"" + this.heroClass + ", type : " + this.type + ", rarity : " + this.rarity + ", description : " + this.description + "}  ";
+    return this.name + "";
     }
-    public Long getCardCost(card card){
-        if(card.rarity == Cards.card.rarity.COMMON){
-            return new Long(5);
-        }
-        if(card.rarity == Cards.card.rarity.RARE){
-            return new Long(10);
-        }
-        if(card.rarity == Cards.card.rarity.EPIC){
-            return new Long(15);
-        }
-        if(card.rarity == Cards.card.rarity.LEGENGARY){
-            return new Long(20);
-        }
-        else
-            return new Long(0);
-    }
+//    public Long getCardCost(card card){
+//        if(card.rarity == Cards.card.rarity.COMMON){
+//            return new Long(5);
+//        }
+//        if(card.rarity == Cards.card.rarity.RARE){
+//            return new Long(10);
+//        }
+//        if(card.rarity == Cards.card.rarity.EPIC){
+//            return new Long(15);
+//        }
+//        if(card.rarity == Cards.card.rarity.LEGENDARY){
+//            return new Long(20);
+//        }
+//        else
+//            return new Long(0);
+//    }
+
+
+
+
+
+
+
+
+
 }

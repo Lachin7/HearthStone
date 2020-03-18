@@ -3,21 +3,28 @@ import cliAndMenus.gameCLI;
 import Cards.card;
 import Exceptions.*;
 import Heroes.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
 import org.json.simple.*;
 import org.json.simple.parser.*;
 import java.io.*;
 import java.util.*;
-import static JSON.jsonForCards.jsonForCards.creatCard;
+
+import static Cards.card.*;
+import static JSON.jsonForCards.jsonForCards.creatCardFromjson;
 import static JSON.jsonForPlayers.jsonForPlayers.*;
 
 public class Player {
+
 /** defining fields in Player class */
-    private String PlayerName;
-    private String PlayerPassword;
-    private long PlayerCoins;
-    private Hero PlayersChoosedHero;
-    private static ArrayList<card> ALLPlayersCards = new ArrayList<>();
-    private ArrayList<card> PlayersDeckCards = new ArrayList<>();
+    @Expose private String PlayerName;
+    @Expose private String PlayerPassword;
+    @Expose private long PlayerCoins ;
+    @Expose private Hero PlayersChoosedHero;
+    @Expose private  ArrayList<card> ALLPlayersCards = new ArrayList<>();
+    @Expose private ArrayList<card> PlayersDeckCards = new ArrayList<>();
+    @Expose private ArrayList<Hero> PlayersUnlockedHeroes = new ArrayList<>();
     /** defining getters and setters for the fields  */
     public String getPlayerName() {
         return PlayerName;
@@ -43,12 +50,12 @@ public class Player {
     public void setPlayersChoosedHero(Hero playersChoosedHero) {
         PlayersChoosedHero = playersChoosedHero;
     }
-    public ArrayList<card> getPlayersDeckCards() {
-        return PlayersDeckCards;
-    }
-    public void setPlayersDeckCards(ArrayList<card> playersDeckCards) {
-        PlayersDeckCards = playersDeckCards;
-    }
+//    public ArrayList<card> getPlayersDeckCards() {
+//        return PlayersDeckCards;
+//    }
+//    public void setPlayersDeckCards(ArrayList<card> playersDeckCards) {
+//        PlayersDeckCards = playersDeckCards;
+//    }
     public ArrayList<card> getALLPlayersCards() {
         return ALLPlayersCards;
     }
@@ -56,7 +63,23 @@ public class Player {
         this.ALLPlayersCards = ALLPlayersCards;
     }
 
+
     Boolean IsSignedin = false;
+     public Mage PlayersMage = new Mage(); public  Rogue PlayersRogue = new Rogue(); public  Warlock PlayersWarlock = new Warlock();
+
+//    public ArrayList<card> getMageDeckCards() {
+//        return WarlockDeckCards;
+//    }
+//    public void setMageDeckCards(ArrayList<card> warlockDeckCards) {
+//        WarlockDeckCards = warlockDeckCards;
+//    }
+
+    //    public ArrayList<card> getMageDeckCards() {
+//        return RogueDeckCards;
+//    }
+//    public void setMageDeckCards(ArrayList<card> rogueDeckCards) {
+//        RogueDeckCards = rogueDeckCards;
+//    }
 //    private long PlayersManaInCurrentTurn ;
 //    public long getPlayersManaInCurrentTurn() {
 //        return PlayersManaInCurrentTurn;
@@ -75,38 +98,54 @@ public class Player {
 //    }
 //   private ArrayList<card> PlayersBoardCards = new ArrayList<>();
 
-    public void Signup(){
 
+//    public Player(/**String playerName,String playerPassword , long playerCoins, Hero playersChoosedHero, ArrayList ALLPlayersCards, ArrayList playersDeckCards*/) {
+//        this.PlayerName = PlayerName;
+//        this.PlayerPassword = PlayerPassword;
+//        this.PlayerCoins = PlayerCoins;
+//        this.PlayersChoosedHero = PlayersChoosedHero;
+//        this.ALLPlayersCards = ALLPlayersCards;
+//        this.PlayersDeckCards = PlayersDeckCards;
+//    }
+
+    public void Signup() throws IOException {
+        System.out.println("*** so let's sign up :) ***");
         boolean flagName = false;
         boolean flagPass = false;
 
         while (!flagName) {
             System.out.println("Creat your user name: ");
-            PlayerName=scanner.nextLine();
-            try {
-                JSONParser jsonParser = new JSONParser();
-                FileReader reader = new FileReader("ALLPlayers.json");
-                    Object obj = jsonParser.parse(reader);
-                    JSONArray PlayersJList = (JSONArray) obj;
-                for (int i = 0; i <PlayersJList.size() ; i++) {
-                    if(((JSONObject)(((JSONObject)(PlayersJList.get(i))).get("Player"))).get("PlayerName").equals(PlayerName) ){
-                        throw new PlayerAlreadyExistsException() ;
-                    }
-                }
-              flagName = true;
+            this.setPlayerName(scanner.nextLine());
+            if(getPlayerFiles(PlayerName)==null){
+                flagName = true;
             }
-            catch (PlayerAlreadyExistsException | FileNotFoundException e){
+            else {
                 System.out.println("Sorry this name is taken, Try something else..");
-            } catch (ParseException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+//            try {
+//                JSONParser jsonParser = new JSONParser();
+//                FileReader reader = new FileReader("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers/ALLPlayers.json");
+//                    Object obj = jsonParser.parse(reader);
+//                    JSONArray PlayersJList = (JSONArray) obj;
+//                for (int i = 0; i <PlayersJList.size() ; i++) {
+//                    if(((JSONObject)(((JSONObject)(PlayersJList.get(i))).get("Player"))).get("PlayerName").equals(this.getPlayerName()) ){
+//                        throw new PlayerAlreadyExistsException() ;
+//                    }
+//                }
+
+//            }
+//            catch (PlayerAlreadyExistsException | FileNotFoundException e){
+//                System.out.println("Sorry this name is taken, Try something else..");
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
         while (!flagPass) {
             try {
                 System.out.println("Creat your password: ");
-                PlayerPassword = scanner.nextLine();
+                this.setPlayerPassword(scanner.nextLine());
                 //check if players password is legal
                 flagPass = true;
             } catch (Exception e2) {
@@ -115,125 +154,144 @@ public class Player {
         }
         /** mkiang a json file for this player */
         this.setPlayerCoins(50);
-        this.setPlayersChoosedHero(Mage.getInstance());
-        this.PlayersDeckCards.add(creatCard("Polymorph"));this.PlayersDeckCards.add(creatCard("RollingFireball"));this.PlayersDeckCards.add(creatCard("Murloc Raider"));this.PlayersDeckCards.add(creatCard("Malygos's Explosion"));this.PlayersDeckCards.add(creatCard("Malygos's Nova"));this.PlayersDeckCards.add(creatCard("Serrated Tooth"));this.PlayersDeckCards.add(creatCard("Goblin Bomb"));this.PlayersDeckCards.add(creatCard("Lost Spirit"));this.PlayersDeckCards.add(creatCard("Serrated Tooth.json"));this.PlayersDeckCards.add(creatCard("Magma Rager"));this.PlayersDeckCards.add(creatCard("Malygos's Frostbolt"));
-        this.ALLPlayersCards.add(creatCard("Polymorph"));this.ALLPlayersCards.add(creatCard("RollingFireball"));this.ALLPlayersCards.add(creatCard("Murloc Raider"));this.ALLPlayersCards.add(creatCard("Malygos's Explosion"));this.ALLPlayersCards.add(creatCard("Malygos's Nova"));this.ALLPlayersCards.add(creatCard("Serrated Tooth"));this.ALLPlayersCards.add(creatCard("Goblin Bomb"));this.ALLPlayersCards.add(creatCard("Lost Spirit"));this.ALLPlayersCards.add(creatCard("Serrated Tooth.json"));this.ALLPlayersCards.add(creatCard("Magma Rager"));this.ALLPlayersCards.add(creatCard("Malygos's Frostbolt"));
+        this.setPlayersChoosedHero(PlayersMage);
+        PlayersMage.setHeroDeckCards(new ArrayList<card>(Arrays.asList(creatCardFromjson("Polymorph"),creatCardFromjson("RollingFireball"),creatCardFromjson("MurlocRaider"),creatCardFromjson("MalygossExplosion"),creatCardFromjson("MalygossNova"),creatCardFromjson("Backstab"),creatCardFromjson("GoblinBomb"),creatCardFromjson("LostSpirit"),creatCardFromjson("SerratedTooth"),creatCardFromjson("MagmaRager"))));
+        //MageDeckCards = (new ArrayList<card>(Arrays.asList(creatCardFromjson("Polymorph"),creatCardFromjson("RollingFireball"),creatCardFromjson("MurlocRaider"),creatCardFromjson("MalygossExplosion"),creatCardFromjson("MalygossNova"),creatCardFromjson("Backstab"),creatCardFromjson("GoblinBomb"),creatCardFromjson("LostSpirit"),creatCardFromjson("SerratedTooth"),creatCardFromjson("MagmaRager"))));
+        this.PlayersDeckCards=PlayersMage.getHeroDeckCards();
+        this.setALLPlayersCards(PlayersMage.getHeroDeckCards());
+//        this.getPlayersDeckCards().add(creatCardFromjson("Polymorph"));this.getPlayersDeckCards().add(creatCardFromjson("RollingFireball"));this.getPlayersDeckCards().add(creatCardFromjson("MurlocRaider"));this.getPlayersDeckCards().add(creatCardFromjson("MalygossExplosion"));this.getPlayersDeckCards().add(creatCardFromjson("MalygossNova"));this.getPlayersDeckCards().add(creatCardFromjson("Backstab"));this.getPlayersDeckCards().add(creatCardFromjson("GoblinBomb"));this.getPlayersDeckCards().add(creatCardFromjson("LostSpirit"));this.getPlayersDeckCards().add(creatCardFromjson("SerratedTooth"));this.getPlayersDeckCards().add(creatCardFromjson("MagmaRager"));this.getPlayersDeckCards().add(creatCardFromjson("MalygossFrostbolt"));
+//        this.ALLPlayersCards.add(creatCardFromjson("Polymorph"));this.ALLPlayersCards.add(creatCardFromjson("RollingFireball"));this.ALLPlayersCards.add(creatCardFromjson("MurlocRaider"));this.ALLPlayersCards.add(creatCardFromjson("MalygossExplosion"));this.ALLPlayersCards.add(creatCardFromjson("MalygossNova"));this.ALLPlayersCards.add(creatCardFromjson("Backstab"));this.ALLPlayersCards.add(creatCardFromjson("GoblinBomb"));this.ALLPlayersCards.add(creatCardFromjson("LostSpirit"));this.ALLPlayersCards.add(creatCardFromjson("SerratedTooth"));this.ALLPlayersCards.add(creatCardFromjson("MagmaRager"));this.ALLPlayersCards.add(creatCardFromjson("MalygossFrostbolt"));
+
         jsonTofilePlayer(this);
         gameCLI.getInstance().setCurrentPlayer(this);
         IsSignedin = true;
         System.out.println("you are signed up successfully! BEGIN YOUR JOURNEY IN HEARTH STONE!!");
     }
 
-    public void Signin(){
-
+    public void Signin() throws IOException {
+        System.out.println("*** so let's sign in :) ***");
         boolean flagName = false;
         boolean flagPass = false;
         String CorrespondingPassword="";
-
         while (!flagName){
-            try {
+          //  try {
                 System.out.println("Enter your user name: ");
                 PlayerName = scanner.nextLine();
                 /**check if players name exists ...*/
-                boolean theNameExists = false;
+                if(getPlayerFiles(getPlayerName())==null){
+                    System.out.println("There isn't an account in this name , Try again..");
+                }
+                else{
+                    flagName = true;
+                    CorrespondingPassword =  jsonFileReader(getPlayerName()).getPlayerPassword();
+                }
 
-                JSONParser jsonParser = new JSONParser();
-                FileReader reader = new FileReader("ALLPlayers.json");
-                Object obj = jsonParser.parse(reader);
-                JSONArray PlayersJList = (JSONArray) obj;
-                for (int i = 0; i < PlayersJList.size() ; i++) {
-                    if(((String)((JSONObject)(((JSONObject)(PlayersJList.get(i))).get("Player"))).get("PlayerName")).equals(PlayerName) ){
-                        theNameExists = true;
-                        /** also getting its password to check later in password part */
-                        CorrespondingPassword =(String)((JSONObject)(((JSONObject)(PlayersJList.get(i))).get("Player"))).get("PlayerPassword");
-                        reader.close();
-                        break;
-                    }
-                }
-                if(theNameExists==false){
-                    throw new PlayerNotFoundException();
-                }
-                flagName = true;
-            }
-            catch (PlayerNotFoundException | FileNotFoundException e1){
-                System.out.println("There isn't an account in this name , Try again..");
-            } catch (ParseException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//                boolean theNameExists = true;
+//
+//                JSONParser jsonParser = new JSONParser();
+//                FileReader reader = new FileReader("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers/ALLPlayers.json");
+//                Object obj = jsonParser.parse(reader);
+//                JSONArray PlayersJList = (JSONArray) obj;
+//                for (int i = 0; i < PlayersJList.size() ; i++) {
+//                    if(((String)((JSONObject)(((JSONObject)(PlayersJList.get(i))).get("Player"))).get("PlayerName")).equals(PlayerName) ){
+//                        theNameExists = false;
+//                        /** also getting its password to check later in password part */
+//                        CorrespondingPassword =(String)((JSONObject)(((JSONObject)(PlayersJList.get(i))).get("Player"))).get("PlayerPassword");
+//                        reader.close();
+//                        break;
+//                    }
+//                }
+//                if(theNameExists==true){
+//                    throw new PlayerNotFoundException();
+//                }
+//                flagName = true;
+//            }
+//            catch (PlayerNotFoundException | FileNotFoundException e1){
+//                System.out.println("There isn't an account in this name , Try again..");
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
         while (!flagPass){
             System.out.println("Enter your Password: ");
-            try {
                 PlayerPassword = scanner.nextLine();
                 /**check if players password is correct for the corresponding name ...*/
-                if (!PlayerPassword.equals(CorrespondingPassword)){
-                    throw new PlayerNotFoundException();
+                if (!PlayerPassword.equals(CorrespondingPassword)) {
+                    System.out.println("Wrong password , Try again..");
                 }
-                flagPass = true;
-            }
-            catch (PlayerNotFoundException e2){
-                System.out.println("Wrong password , Try again..");
-            }
+                else {
+                    flagPass = true;
+                }
         }
-        jsonFileReader(this);
         IsSignedin = true;
-        gameCLI.getInstance().setCurrentPlayer(this);
+        gameCLI.getInstance().setCurrentPlayer(jsonFileReader(this.getPlayerName()));
         System.out.println("you are signed in successfully! WELCOME BACK "+getPlayerName()+" !!");
     }
 
-    public void deleteThePlayer(){
-        Scanner scanner = new Scanner(System.in);
+    public void deleteThePlayer() throws IOException {
         if(this.IsSignedin == true) {
             Boolean isvalid = false;
             while (!isvalid) {
                 System.out.println("If you are sure of DELETING your account, enter your Password : ");
                 String pass = scanner.nextLine();
                 if (pass == this.PlayerPassword) {
-                    isvalid = true;
-                    this.setPlayerName("deleted account");
-                    this.setPlayerPassword("-");
-                    this.setPlayerCoins(0);
-                    this.ALLPlayersCards = null;
-                    this.PlayersChoosedHero=null;
-                    this.PlayersDeckCards=null;
-                    jsonFileUpdater(this);
+                    getPlayerFiles(PlayerName).deleteOnExit();
                     System.exit(0);
-                } else {
-                    System.out.println("Wrong password! ");
                 }
             }
+
+//        Scanner scanner = new Scanner(System.in);
+//        if(this.IsSignedin == true) {
+//            Boolean isvalid = false;
+//            while (!isvalid) {
+//                System.out.println("If you are sure of DELETING your account, enter your Password : ");
+//                String pass = scanner.nextLine();
+//                if (pass == this.PlayerPassword) {
+//                    isvalid = true;
+//                    this.setPlayerName("deleted account");
+//                    this.setPlayerPassword("-");
+//                    this.setPlayerCoins(0);
+//                    this.ALLPlayersCards = null;
+//                    this.PlayersChoosedHero=null;
+//                    this.PlayersDeckCards=null;
+//                     jsonTofilePlayer(this);
+//                    System.exit(0);
+//                } else {
+//                    System.out.println("Wrong password! ");
+//                }
+//            }
         }
         else{
                 System.out.println("you have to sign in first");
             }
     }
 
-    public static ArrayList<card> getPlayersMageCards(){
-        ArrayList<card> arrayList = new ArrayList<>();
-        for (card card : ALLPlayersCards) {
-            if((Hero)card.getHeroClass()== Mage.getInstance())
-                arrayList.add(card);
-        }
-        return arrayList;
-    }
-    public static ArrayList<card> getPlayersRougeCards(){
-        ArrayList<card> arrayList = new ArrayList<>();
-        for (card card : ALLPlayersCards) {
-            if((Hero)card.getHeroClass()== Rogue.getInstance())
-                arrayList.add(card);
-        }
-        return arrayList;
-    }
-    public static ArrayList<card> getPlayersWarlockCards(){
-        ArrayList<card> arrayList = new ArrayList<>();
-        for (card card : ALLPlayersCards) {
-            if((Hero)card.getHeroClass()== Mage.getInstance())
-                arrayList.add(card);
-        }
-        return arrayList;
-    }
+//    public static ArrayList<card> getPlayersMageCards(){
+//        ArrayList<card> arrayList = new ArrayList<>();
+//        for (card card : ALLPlayersCards) {
+//            if((Hero)card.getHeroClass()== Mage.getInstance())
+//                arrayList.add(card);
+//        }
+//        return arrayList;
+//    }
+//    public static ArrayList<card> getPlayersRougeCards(){
+//        ArrayList<card> arrayList = new ArrayList<>();
+//        for (card card : ALLPlayersCards) {
+//            if((Hero)card.getHeroClass()== Rogue.getInstance())
+//                arrayList.add(card);
+//        }
+//        return arrayList;
+//    }
+//    public static ArrayList<card> getPlayersWarlockCards(){
+//        ArrayList<card> arrayList = new ArrayList<>();
+//        for (card card : ALLPlayersCards) {
+//            if((Hero)card.getHeroClass()== Mage.getInstance())
+//                arrayList.add(card);
+//        }
+//        return arrayList;
+//    }
     public static void main(String[] args) throws IOException, ParseException {
 
     }

@@ -1,22 +1,24 @@
 package Heroes;
 import Cards.card;
 import cliAndMenus.gameCLI;
+import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
-import static Player.Player.getPlayersMageCards;
 
-public class Mage extends HeroClass {
+public class Mage extends Hero {
 
-    ArrayList<card> PlayersMageCards;
-    static Mage Mage = new Mage();
+    @Expose ArrayList<card> MageDeckCards =new ArrayList<>();
+    @Override
+    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+        this.MageDeckCards = heroDeckCards;
+    }
+    @Override
+    public ArrayList<card> getHeroDeckCards() {
+        return this.MageDeckCards;
+    }
 
     public Mage() {
-        this.PlayersMageCards = getPlayersMageCards();
-        this.HP = 30;
-    }
+        this.HP = 30; }
 
-    public static Mage getInstance(){
-        return Mage;
-    }
     @Override
     public void SpecialPower(){
         if(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero()== this)
@@ -26,6 +28,11 @@ public class Mage extends HeroClass {
             }
         }
     }
+    @Override
+    public String toString() {
+        return "MAGE";
+    }
+
 
 //    public void HeroPower(long manaCost , Minion minion) {
 //        manaCost = 2;
@@ -43,4 +50,5 @@ public class Mage extends HeroClass {
 //        else
 //            System.out.println("You don't have enough mana in this turn ");
 //    }
+
 }

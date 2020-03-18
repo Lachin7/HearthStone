@@ -1,6 +1,8 @@
 package cliAndMenus;
 
 import Player.Player;
+
+import java.io.IOException;
 import java.util.Scanner;
 import static cliAndMenus.Menus.Collections.goToCollectionsMenu;
 import static cliAndMenus.Menus.Store.goToStoreMenu;
@@ -9,9 +11,9 @@ public class gameCLI extends Player{
     /** I made this class singlton because I just want one Instance of it and also the current player field in it  */
     private static gameCLI gameCli = new gameCLI();
     Player currentPlayer = new Player();
-    private gameCLI(){
-        this.currentPlayer = currentPlayer;
-    }
+//    protected gameCLI(){
+//        this.currentPlayer = currentPlayer;
+//    }
     public static gameCLI getInstance(){
         return gameCli;
     }
@@ -24,8 +26,8 @@ public class gameCLI extends Player{
         this.currentPlayer = currentPlayer;
     }
 
-    public void startTheApp(){
-        System.out.println("********************** \n **** HEARTH STONE **** \n **********************");
+    public void startTheApp() throws IOException {
+        System.out.println(" ********************** \n **** HEARTH STONE **** \n **********************");
         Scanner scanner = new Scanner(System.in);
         System.out.println("already have an account?(yes/no/exit/exit_all)");
         Boolean isValidInput = false;
@@ -33,12 +35,12 @@ public class gameCLI extends Player{
             switch (scanner.nextLine()){
                 case "yes":
                     gameCli.currentPlayer.Signin();
-                    goToCardMenus();
+                    goToMenus();
                     isValidInput = true;
                     break;
                 case "no":
                     gameCli.currentPlayer.Signup();
-                    goToCardMenus();
+                    goToMenus();
                     isValidInput = true;
                     break;
                 case "exit":
@@ -53,7 +55,7 @@ public class gameCLI extends Player{
         }
     }
 
-    public void exit() {
+    public void exit() throws IOException {
         System.out.println("Are you sure? this will exit the game, sign you out and start the app again (yes/no)");
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.next();
@@ -73,12 +75,12 @@ public class gameCLI extends Player{
         System.exit(0);
     }
 
-    public void goToCardMenus(){
-        System.out.println("which *Menu*  do you want to go(collections/store)?" + "\n"+ "(exit/exit_all/help)");
-        Scanner scanner = new Scanner(System.in);
-        String MenuName = scanner.nextLine();
+    public void goToMenus() throws IOException {
         Boolean isValidName = false;
         while (!isValidName) {
+            System.out.println("which *Menu*  do you want to go(collections/store)?" + "\n"+ "(exit/exit_all/delete_player/help)");
+            Scanner scanner = new Scanner(System.in);
+            String MenuName = scanner.nextLine();
             switch (MenuName) {
                 case "collections":
                     isValidName = true;
@@ -89,13 +91,20 @@ public class gameCLI extends Player{
                     goToStoreMenu();
                     break;
                 case "exit":
+                    isValidName = true;
                     exit();
                     break;
                 case "exit_all":
+                    isValidName = true;
                     exit_all();
                     break;
                 case "help":
+                    isValidName = true;
                     help();
+                    break;
+                case "delete_player":
+                    isValidName = true;
+                    deleteThePlayer();
                     break;
                 default:{
                     System.out.println("invalid Menu name! Try again..");

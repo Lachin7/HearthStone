@@ -1,16 +1,16 @@
 package Cards;
-import Heroes.HeroClass;
+import com.google.gson.annotations.Expose;
 
 public class Weapon extends card{
-    private long durability,Attack;
+    @Expose private long durability,Attack;
 
-    Weapon(long manaCost, String name, String description, card.rarity rarity, HeroClass heroClass, card.type type , long durability, long Attack) {
-        super(manaCost, name, description, rarity, heroClass, type);
+    public Weapon(int manaCost, String name, String description, card.rarity rarity, HeroClass heroClass, card.type type,int price, int durability, int Attack) {
+        super(manaCost, name, description, rarity, heroClass, type , price);
         this.durability = durability;
         this.Attack = Attack;
     }
-    @Override
-    public String toString() {
-        return super.toString().substring(0,super.toString().indexOf("}")) + ", durability  : "+ this.durability + ", Attack : "+ this.Attack + " } *";
-    }
+//    @Override
+//    public String toString() {
+//        return super.toString().substring(0,super.toString().indexOf("}")) + ", durability  : "+ this.durability + ", Attack : "+ this.Attack + " } *";
+//    }
 }

@@ -1,0 +1,151 @@
+{
+  "PlayerName": "Sara",
+  "PlayerPassword": "jj",
+  "PlayerCoins": 50,
+  "PlayersChoosedHero": {},
+  "ALLPlayersCards": [
+    {
+      "manaCost": 4,
+      "name": "Polymorph",
+      "description": "Transform minion in to a 1/1 sheep.",
+      "heroClass": "MAGE",
+      "price": 10
+    },
+    {
+      "manaCost": 5,
+      "name": "RollingFireball",
+      "description": "Deal 8 damage to a minion. Any excess damage continues to the left or right.1 sheep.",
+      "heroClass": "MAGE",
+      "price": 15
+    },
+    {
+      "manaCost": 1,
+      "name": "MurlocRaider",
+      "description": "-",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 1,
+      "name": "MalygossExplosion",
+      "description": "Deal 2 damage to all enemy minions.",
+      "heroClass": "NEUTRAL",
+      "price": 10
+    },
+    {
+      "manaCost": 1,
+      "name": "MalygossNova",
+      "description": "Freeze all enemy minions.",
+      "heroClass": "NEUTRAL",
+      "price": 10
+    },
+    {
+      "manaCost": 0,
+      "name": "Backstab",
+      "description": "Deal 2 damage to an undamaged minion.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 2,
+      "name": "GoblinBomb",
+      "description": "Deal 2 damage to the enemy hero.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 2,
+      "name": "LostSpirit",
+      "description": "Deathrattle: Give your minions +1 Attack.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 1,
+      "name": "SerratedTooth",
+      "description": "Deathrattle: Give your minions Rush.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 3,
+      "name": "MagmaRager",
+      "description": "-",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    }
+  ],
+  "PlayersDeckCards": [
+    {
+      "manaCost": 4,
+      "name": "Polymorph",
+      "description": "Transform minion in to a 1/1 sheep.",
+      "heroClass": "MAGE",
+      "price": 10
+    },
+    {
+      "manaCost": 5,
+      "name": "RollingFireball",
+      "description": "Deal 8 damage to a minion. Any excess damage continues to the left or right.1 sheep.",
+      "heroClass": "MAGE",
+      "price": 15
+    },
+    {
+      "manaCost": 1,
+      "name": "MurlocRaider",
+      "description": "-",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 1,
+      "name": "MalygossExplosion",
+      "description": "Deal 2 damage to all enemy minions.",
+      "heroClass": "NEUTRAL",
+      "price": 10
+    },
+    {
+      "manaCost": 1,
+      "name": "MalygossNova",
+      "description": "Freeze all enemy minions.",
+      "heroClass": "NEUTRAL",
+      "price": 10
+    },
+    {
+      "manaCost": 0,
+      "name": "Backstab",
+      "description": "Deal 2 damage to an undamaged minion.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 2,
+      "name": "GoblinBomb",
+      "description": "Deal 2 damage to the enemy hero.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 2,
+      "name": "LostSpirit",
+      "description": "Deathrattle: Give your minions +1 Attack.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 1,
+      "name": "SerratedTooth",
+      "description": "Deathrattle: Give your minions Rush.",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    },
+    {
+      "manaCost": 3,
+      "name": "MagmaRager",
+      "description": "-",
+      "heroClass": "NEUTRAL",
+      "price": 5
+    }
+  ],
+  "PlayersUnlockedHeroes": []
+}

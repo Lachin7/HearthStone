@@ -2,20 +2,28 @@ package Heroes;
 
 import Cards.card;
 import cliAndMenus.gameCLI;
+import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
-import static Player.Player.*;
 
-public class Rogue extends HeroClass {
-    ArrayList<card> PlayersRougeCards;
-    static Rogue Rouge = new Rogue();
+public class Rogue extends Hero {
+
+    @Expose ArrayList<card> RogueDeckCards =new ArrayList<>();
+    @Override
+    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+        this.RogueDeckCards = heroDeckCards;
+    }
+    @Override
+    public ArrayList<card> getHeroDeckCards() {
+        return this.RogueDeckCards;
+    }
+ //   static Rogue Rouge = new Rogue();
 
     public Rogue() {
         this.HP = 30;
-        this.PlayersRougeCards = getPlayersRougeCards();
     }
-    public static Rogue getInstance(){
-        return Rouge;
-    }
+//    public static Rogue getInstance(){
+//        return Rouge;
+//    }
 
     public void SpecialPower() {
         if (gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero() == this) {
@@ -37,5 +45,9 @@ public class Rogue extends HeroClass {
 //        Random random2 = new Random(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().size());
 //        gameCLI.getInstance().getCurrentPlayer().getPlayersBoardCards().add(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().get(random.nextInt()));
 //    }
+@Override
+public String toString() {
+    return "ROGUE";
+}
 
 }

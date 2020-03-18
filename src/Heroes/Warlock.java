@@ -1,18 +1,28 @@
 package Heroes;
 import Cards.card;
-import java.util.ArrayList;
-import static Player.Player.getPlayersWarlockCards;
+import com.google.gson.annotations.Expose;
 
-public class Warlock extends HeroClass {
-    ArrayList<card> PlayersWarlockCards ;
-    static Warlock Warlock = new Warlock();
+import java.util.ArrayList;
+import java.lang.reflect.Modifier;
+
+public class Warlock extends Hero {
+    @Expose ArrayList<card> WarlockDeckCards =new ArrayList<>();
+    @Override
+    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+        this.WarlockDeckCards = heroDeckCards;
+    }
+    @Override
+    public ArrayList<card> getHeroDeckCards() {
+        return this.WarlockDeckCards;
+    }
+   // static Warlock Warlock = new Warlock();
     public Warlock() {
-        PlayersWarlockCards = getPlayersWarlockCards();
+      //  PlayersWarlockCards = getPlayersWarlockCards();
         this.HP = 35;
-    }
-    public static Warlock getInstance(){
-        return Warlock;
-    }
+   }
+//    public static Warlock getInstance(){
+//        return Warlock;
+//    }
 
     void HeroPower() {
         this.HP -=2;
@@ -21,4 +31,8 @@ public class Warlock extends HeroClass {
 //    public void SpecialPower() {
 //    this.HP= 35;
 //    }
+@Override
+public String toString() {
+    return "WARLOCK";
+}
 }
