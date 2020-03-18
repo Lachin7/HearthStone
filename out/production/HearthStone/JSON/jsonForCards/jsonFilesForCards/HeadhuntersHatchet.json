@@ -1,0 +1,11 @@
+{
+  "durability": 2,
+  "Attack": 1,
+  "manaCost": 1,
+  "name": "HeadhuntersHatchet",
+  "description": "Battlecry: If you control a Beast, gain +1 Durability.",
+  "rarity": "COMMON",
+  "type": "WEAPON",
+  "heroClass": "NEUTRAL",
+  "price": 5
+}
