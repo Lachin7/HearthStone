@@ -28,16 +28,16 @@ public class Store extends gameCLI {
                     System.out.println("choose to see 1.the cards you can sell them 2.the cards you can by from store (1/2) :");
                     String input2 = scanner.nextLine();
                     if(input2.equalsIgnoreCase("1")||input2.equalsIgnoreCase("the cards you can sell them")){
-                        isValidInput2 = true;
                         showCardsUCanSell();
+                        isValidInput2 = true;
                     }
                     if(input2.equalsIgnoreCase("2")||input2.equalsIgnoreCase("the cards you can buy from store")){
-                        isValidInput2 = true;
                         getALLCardsExistingInGame();
+                        isValidInput2 = true;
                     }
                     if(input2.equalsIgnoreCase("back")){
-                        isValidInput2 = true;
                         gameCLI.getInstance().goToMenus();
+                        isValidInput2 = true;
                     }
                     else {
                         System.out.println("invalid input!!");

@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class  Hero extends gameCLI {
+public class  Hero {
 
    ArrayList<card> HeroDeckCards =new ArrayList<>();
    public ArrayList<card> getHeroDeckCards() {
@@ -17,7 +17,7 @@ public class  Hero extends gameCLI {
       HeroDeckCards = heroDeckCards;
    }
 
-   ArrayList<card> HeroAllCards =new ArrayList<>();
+   ArrayList<card> HeroAllCards = new ArrayList<>();
    public ArrayList<card> getHeroAllCards() throws IOException {
       return HeroAllCards;
    }

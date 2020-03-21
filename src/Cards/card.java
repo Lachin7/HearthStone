@@ -4,7 +4,7 @@ import cliAndMenus.gameCLI;
 import com.google.gson.annotations.Expose;
 import java.util.logging.Logger;
 
-public class card extends gameCLI {
+public class card extends gameCLI{
 
     /** defining fields here */
     @Expose private int manaCost ;

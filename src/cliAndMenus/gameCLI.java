@@ -5,20 +5,25 @@ import cliAndMenus.Menus.*;
 import com.google.gson.annotations.Expose;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 
 import static JSON.jsonForGame.jsonForGame.jsonFileMakerForGame;
 import static JSON.jsonForPlayers.jsonForPlayers.jsonTofilePlayer;
+import static cliAndMenus.Menus.myCollections.getALLCardsExistingInGame;
 
 public class gameCLI {
+
     /** I made this class singlton because I just want one Instance of it and also the current player field in it  */
     private static gameCLI gameCli = new gameCLI();
+    public gameCLI(){}
     public static gameCLI getInstance(){
         return gameCli;
     }
+  //  @Expose ArrayList ALLCardsExistingInGame = getALLCardsExistingInGame();
 
-    @Expose Player currentPlayer = new Player();
+   Player currentPlayer = new Player();
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
