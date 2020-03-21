@@ -1,13 +1,11 @@
 package Cards;
 
+import cliAndMenus.gameCLI;
 import com.google.gson.annotations.Expose;
-import java.io.IOException;
 import java.util.logging.Logger;
 
-import static JSON.jsonForCards.jsonForCards.jsonFileMakerForCards;
+public class card extends gameCLI {
 
-public class card {
-    private static final Logger LOGGER = Logger.getLogger( card.class.getName() );
     /** defining fields here */
     @Expose private int manaCost ;
     @Expose private String name , description;
@@ -101,13 +99,4 @@ public class card {
 //        else
 //            return new Long(0);
 //    }
-
-
-
-
-
-
-
-
-
 }

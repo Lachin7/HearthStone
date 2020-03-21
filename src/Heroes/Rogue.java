@@ -3,11 +3,15 @@ package Heroes;
 import Cards.card;
 import cliAndMenus.gameCLI;
 import com.google.gson.annotations.Expose;
+
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static cliAndMenus.Menus.myCollections.getALLCardsExistingInGame;
 
 public class Rogue extends Hero {
 
-    @Expose ArrayList<card> RogueDeckCards =new ArrayList<>();
+    @Expose ArrayList<card> RogueDeckCards =new ArrayList<>(); @Expose String name = "Rogue";
     @Override
     public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
         this.RogueDeckCards = heroDeckCards;
@@ -16,14 +20,34 @@ public class Rogue extends Hero {
     public ArrayList<card> getHeroDeckCards() {
         return this.RogueDeckCards;
     }
- //   static Rogue Rouge = new Rogue();
+
+    @Expose public ArrayList<card> RogueAllCards =new ArrayList<>();
+    @Override
+    public  ArrayList<card> getHeroAllCards() {
+        return RogueAllCards;
+    }
+//    @Override
+//    public  ArrayList<card> getHeroAllCards() {
+//        return this.RogueAllCards;
+//    }
+//    @Override
+//    public void setHeroAllCards(ArrayList<card> heroAllCards) {
+//        this.RogueAllCards = heroAllCards;
+//    }
+
+    @Override
+    public String getName() {
+        return "Rogue";
+    }
 
     public Rogue() {
         this.HP = 30;
+        for(Cards.card card : getALLCardsExistingInGame()) {
+            if(card.getHeroClass() == Cards.card.HeroClass.ROGUE){
+                RogueAllCards.add(card);
+            }
+        }
     }
-//    public static Rogue getInstance(){
-//        return Rouge;
-//    }
 
     public void SpecialPower() {
         if (gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero() == this) {

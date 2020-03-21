@@ -10,20 +10,14 @@ public class jsonForCards {
 
     public static void jsonFileMakerForCards(card card) throws IOException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileWriter fileWriter = new FileWriter("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForCards/jsonFilesForCards/" + card.getName() + ".json");
+        FileWriter fileWriter = new FileWriter("src/JSON/jsonForCards/jsonFilesForCards/" + card.getName() + ".json");
         gson.toJson(card, fileWriter);
         fileWriter.close();
     }
 
-//    public static void main(String[] args) throws IOException {
-//        for(card card : AllExistingCards){
-//            jsonFileMakerForCards(card);
-//        }
-//    }
-
     public static card creatCardFromjson(String name) throws IOException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileReader fileReader = new FileReader("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForCards/jsonFilesForCards/" + name + ".json");
+        FileReader fileReader = new FileReader("src/JSON/jsonForCards/jsonFilesForCards/" + name + ".json");
         card card = gson.fromJson(fileReader, card.class);
         fileReader.close();
         return card;
@@ -36,7 +30,7 @@ public class jsonForCards {
     static Spell BlinkFox = new Spell(3, "BlinkFox", "Battlecry: Add a random card to your hand (from your opponent's class).", card.rarity.COMMON, card.HeroClass.ROGUE, card.type.SPELL, 5, "", "");
     static Minion Ratcatcher = new Minion(3, "Ratcatcher", "Rush   Battlecry: Destroy a friendly minion and gain its Attack and Health.", card.rarity.LEGENDARY, card.HeroClass.WARLOCK, type.MINION, 20, 2, 2);
     //  static Minion Ratcatcher3 = new Minion(3,"Ratcatcher","Rush   Battlecry: Destroy a friendly minion and gain its Attack and Health.", rarity.LEGENDARY, HeroClass.WARLOCK, type.MINION,2,2);
-    static Minion AbusiveSergeant = new Minion(1, "AbusiveSergeant", "Battlecry: Give a minion +2 Attack this turn.", card.rarity.COMMON, card.HeroClass.NEUTRAL, card.type.MINION, 5, 1, 1);
+    static public Minion AbusiveSergeant = new Minion(1, "AbusiveSergeant", "Battlecry: Give a minion +2 Attack this turn.", card.rarity.COMMON, card.HeroClass.NEUTRAL, card.type.MINION, 5, 1, 1);
     static Minion HungryCrab = new Minion(1, "HungryCrab", "Destroy a Murloc and gain +2/+2.", rarity.EPIC, card.HeroClass.NEUTRAL, card.type.MINION, 15, 2, 1);
     static Minion GoblinBomb = new Minion(2, "GoblinBomb", "Deal 2 damage to the enemy hero.", rarity.COMMON, card.HeroClass.NEUTRAL, type.MINION, 5, 2, 0);
     static Minion BeamingSidekick = new Minion(1, "BeamingSidekick", "Give a friendly minion +2 Health.", rarity.COMMON, card.HeroClass.NEUTRAL, type.MINION, 5, 2, 1);
@@ -76,7 +70,9 @@ public class jsonForCards {
 //        jsonFileMakerForCards(LightsJustice);
 //        jsonFileMakerForCards(SerratedTooth);
 //        jsonFileMakerForCards(HeadhuntersHatchet);
-        System.out.println(Polymorph.getHeroClass().toString());
+
+        card card = creatCardFromjson("Polymorph");
+      //  System.out.println(Polymorph.getHeroClass().toString());
         // public  ArrayList<card> AllExistingCardsInGame = new ArrayList();
 
 

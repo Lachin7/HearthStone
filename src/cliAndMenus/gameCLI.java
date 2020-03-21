@@ -1,24 +1,24 @@
 package cliAndMenus;
 
 import Player.Player;
+import cliAndMenus.Menus.*;
+import com.google.gson.annotations.Expose;
 
 import java.io.IOException;
 import java.util.Scanner;
-import static cliAndMenus.Menus.Collections.goToCollectionsMenu;
-import static cliAndMenus.Menus.Store.goToStoreMenu;
+import java.util.logging.Level;
 
-public class gameCLI extends Player{
+import static JSON.jsonForGame.jsonForGame.jsonFileMakerForGame;
+import static JSON.jsonForPlayers.jsonForPlayers.jsonTofilePlayer;
+
+public class gameCLI {
     /** I made this class singlton because I just want one Instance of it and also the current player field in it  */
     private static gameCLI gameCli = new gameCLI();
-    Player currentPlayer = new Player();
-//    protected gameCLI(){
-//        this.currentPlayer = currentPlayer;
-//    }
     public static gameCLI getInstance(){
         return gameCli;
     }
 
-
+    @Expose Player currentPlayer = new Player();
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
@@ -26,31 +26,62 @@ public class gameCLI extends Player{
         this.currentPlayer = currentPlayer;
     }
 
-    public void startTheApp() throws IOException {
-        System.out.println(" ********************** \n **** HEARTH STONE **** \n **********************");
+    public  void startTheApp() throws IOException {
+        System.out.println(" ******************************** \n      **** HEARTH STONE ****      \n ********************************");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("already have an account?(yes/no/exit/exit_all)");
-        Boolean isValidInput = false;
-        while (!isValidInput){
-            switch (scanner.nextLine()){
+      o :  while (true){
+          System.out.println("already have an account?(yes/no/exit/exit_all)");
+            switch (scanner.nextLine()) {
                 case "yes":
                     gameCli.currentPlayer.Signin();
                     goToMenus();
-                    isValidInput = true;
-                    break;
+                    break o;
                 case "no":
                     gameCli.currentPlayer.Signup();
                     goToMenus();
-                    isValidInput = true;
-                    break;
+                    break o;
                 case "exit":
                     exit();
-                    break;
+                    break o;
                 case "exit_all":
                     exit_all();
-                    break;
+                    break o;
                 default:
                     System.out.println("Your input is not valid! ");
+                    gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO, "ERROR : invalid input  IN_LINE:48");
+            }
+        }
+    }
+
+    public void goToMenus() throws IOException {
+        gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"OPENED_MENUS");
+       o : while (true) {
+            System.out.println("which *Menu*  do you want to go(collections/store)?" + "\n"+ "(exit/exit_all/delete_player/help)");
+            Scanner scanner = new Scanner(System.in);
+            String MenuName = scanner.nextLine();
+            switch (MenuName) {
+                case "collections":
+                    myCollections.getInstance().goToCollectionsMenu();
+                    break o;
+                case "store":
+                    Store.getInstance().goToStoreMenu();
+                    break o;
+                case "exit":
+                    exit();
+                    break o;
+                case "exit_all":
+                    exit_all();
+                    break o;
+                case "help":
+                    help();
+                    break o;
+                case "delete_player":
+                    gameCli.getCurrentPlayer().deleteThePlayer();
+                    break o;
+                default:{
+                    System.out.println("invalid Menu name! Try again..");
+                    gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO, "ERROR : invalid input  IN_LINE:80");
+                }
             }
         }
     }
@@ -58,66 +89,37 @@ public class gameCLI extends Player{
     public void exit() throws IOException {
         System.out.println("Are you sure? this will exit the game, sign you out and start the app again (yes/no)");
         Scanner scanner = new Scanner(System.in);
-        String answer = scanner.next();
-        Boolean validAnswer = false;
-        while (!validAnswer) {
+        while (true) {
+            String answer = scanner.next();
             if (answer.equals("yes")) {
+                jsonTofilePlayer(gameCLI.getInstance().currentPlayer);
+                jsonFileMakerForGame(gameCLI.getInstance());
                 startTheApp();
-                validAnswer = true;
+                break;
             }
-            if (answer.equals("no"))
-                validAnswer = true;
-            else
-                System.out.println("Your input is not valid! Enter yes or no : ");
+            if (answer.equals("no")){
+                goToMenus();
+            }
+            else {
+                System.out.println("Your input is not valid! Enter yes or no :  type (yes/no)");
+            }
         }
-    }
-    public void exit_all () {
-        System.exit(0);
+        gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"EXITED");
     }
 
-    public void goToMenus() throws IOException {
-        Boolean isValidName = false;
-        while (!isValidName) {
-            System.out.println("which *Menu*  do you want to go(collections/store)?" + "\n"+ "(exit/exit_all/delete_player/help)");
-            Scanner scanner = new Scanner(System.in);
-            String MenuName = scanner.nextLine();
-            switch (MenuName) {
-                case "collections":
-                    isValidName = true;
-                    goToCollectionsMenu();
-                    break;
-                case "store":
-                    isValidName = true;
-                    goToStoreMenu();
-                    break;
-                case "exit":
-                    isValidName = true;
-                    exit();
-                    break;
-                case "exit_all":
-                    isValidName = true;
-                    exit_all();
-                    break;
-                case "help":
-                    isValidName = true;
-                    help();
-                    break;
-                case "delete_player":
-                    isValidName = true;
-                    deleteThePlayer();
-                    break;
-                default:{
-                    System.out.println("invalid Menu name! Try again..");
-                }
-            }
-        }
+    public static void exit_all() throws IOException {
+        jsonTofilePlayer(gameCLI.getInstance().currentPlayer);
+        jsonFileMakerForGame(gameCLI.getInstance());
+        System.exit(0);
+        gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"EXITED_ALL");
     }
-    //TODO add a quick menu wich uses all the methods instantly without guiding so much
-    public void help(){
-        System.out.println("collections : this will show the game collection and your collection  of cards and heroes in game ");
-        System.out.println("store : a place to buy or sell cards!!");
-        System.out.println("exit : this will exit the game, sign you out and start the app again ");
-        System.out.println("exit_all : this will exit you from the app");
-        System.out.println("deleteThePlayer : this wil delete your account");
+
+    public void help() throws IOException {
+        System.out.println("collections : this will show the game collection and your collection  of cards and heroes in game \n store : a place to buy or sell cards!! \n  exit : this will exit the game, sign you out and start the app again \n exit_all : this will exit you from the app \n  deleteThePlayer : this wil delete your account \n ");
+        goToMenus();
     }
+
+
+    //TODO : add a quick menu which uses all the methods instantly without guiding user so much
+
 }

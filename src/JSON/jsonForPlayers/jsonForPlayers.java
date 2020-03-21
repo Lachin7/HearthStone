@@ -1,36 +1,36 @@
 package JSON.jsonForPlayers;
-
 import Player.Player;
-import com.google.gson.GsonBuilder;
-import org.json.simple.*;
-import com.google.gson.Gson;
-import org.json.simple.parser.*;
+import com.google.gson.*;
 import java.io.*;
-import java.lang.reflect.Modifier;
 
 public class jsonForPlayers {
 
     public static void jsonTofilePlayer(Player player) throws IOException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileWriter fileWriter = new FileWriter("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers/" + player.getPlayerName() + ".json");
+        FileWriter fileWriter = new FileWriter("src/JSON/jsonForPlayers/jsonFilesForPlayers/" + player.getPlayerName() + ".json");
         gson.toJson(player, fileWriter);
         fileWriter.close();
     }
 
-    public static File getPlayerFiles(String name){
-        File directory = new File("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers");
-        File[] listOfPlayersFiles  = directory.listFiles();
-       // File outPut = null;
-       // Boolean fileFound = false;
-     //   if(listOfPlayersFiles != null) {
-            for (File file : listOfPlayersFiles) {
-                if ((name+".json").equals(file.getName())) {
-                    return  file;
-                }
+    public static File getPlayerFiles(String name) {
+        File directory = new File("src/JSON/jsonForPlayers/jsonFilesForPlayers");
+        File[] listOfPlayersFiles = directory.listFiles();
+        for (File file : listOfPlayersFiles) {
+            if ((name + ".json").equals(file.getName())) {
+                return file;
             }
-      //  }
+        }
         return null;
     }
+
+    public static Player jsonFileReader(String name) throws IOException {
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        FileReader fileReader = new FileReader("src/JSON/jsonForPlayers/jsonFilesForPlayers/" + name + ".json");
+        Player player = gson.fromJson(fileReader, Player.class);
+        fileReader.close();
+        return player;
+    }
+}
 
 //        FileReader fileReader = new FileReader("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers/ALLPlayers.json.json");
 //        String string = gson.fromJson(fileReader,String.class) + gson.toJson(player);
@@ -38,23 +38,12 @@ public class jsonForPlayers {
 //        FileWriter fileWriter1 = new FileWriter("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers/ALLPlayers.json.json");
 //        gson.toJson(string,fileWriter1);
 //        fileWriter1.close();
-
-    public static Player jsonFileReader(String name) throws IOException {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileReader fileReader = new FileReader("/Users/shahinnaghashyar/Desktop/HearthStone/src/JSON/jsonForPlayers/jsonFilesForPlayers/" +name+ ".json");
-        Player player = gson.fromJson(fileReader,Player.class);
-        fileReader.close();
-        return player;
-    }
 //
 //
 //         gson = new GsonBuilder()
 //                .excludeFieldsWithModifiers(Modifier.STATIC)
 //                .create();
        // fileWriter.write(gson.);
-
-
-
 //        Map playerInfo = new JSONObject();
 //        playerInfo.put("PlayerName",""+player.getPlayerName());
 //        playerInfo.put("PlayerPassword",""+player.getPlayerPassword());
@@ -187,7 +176,7 @@ public class jsonForPlayers {
 //        } catch (ParseException e) {
 //            e.printStackTrace();
 //        }
-    }
+
 //    public static void convertFileToJsonForPlayers(String fileName , Player playerSignedIn){
 //        //JSON parser object to parse read file
 //        JSONParser jsonParser = new JSONParser();

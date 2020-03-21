@@ -15,4 +15,8 @@ public class Neutral extends Hero {
         return "NEUTRAL";
     }
 
+    @Override
+    public String getName() {
+        return "Neutral";
+    }
 }
