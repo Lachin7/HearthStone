@@ -1,0 +1,19 @@
+Mar 22, 2020 3:13:11 AM Player.Player Signup
+INFO: USER  : sara
+CREATED AT : 2020/03/22 03:13:11
+PASSWORD : e950c1517ee0d7e20454d22c306c4c501a7cf11c
+
+Mar 22, 2020 3:13:11 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:13:15 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 3:13:57 AM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 3:13:57 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 3:14:03 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 3:14:25 AM cliAndMenus.Menus.Store buyTheCard
+INFO: bought this card from store : MurlocRaider
+Mar 22, 2020 3:14:25 AM cliAndMenus.Menus.Store buyTheCard
+INFO: ERROR : invalid input  IN_LINE:115

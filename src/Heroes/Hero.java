@@ -39,5 +39,18 @@ public class  Hero {
    }
    public void SpecialPower(){}
 
+   @Override
+   public String toString(){
+      if(this.getClass()==Mage.class){
+         return "Mage";
+      }
+      if(this.getClass()==Rogue.class){
+         return "Rogue";
+      }
+      else {
+         return "Warlock";
+      }
+   }
+
 }
 

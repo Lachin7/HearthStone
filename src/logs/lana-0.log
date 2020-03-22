@@ -1,0 +1,65 @@
+Mar 22, 2020 3:30:28 AM Player.Player Signin
+INFO: USER  : lana
+Signed_In AT : 2020/03/22 03:30:28
+PASSWORD : null
+
+Mar 22, 2020 3:30:28 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:30:35 AM cliAndMenus.gameCLI goToMenus
+INFO: ERROR : invalid input  IN_LINE:80
+Mar 22, 2020 3:30:41 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:30:45 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 3:36:08 AM Player.Player Signin
+INFO: USER  : lana
+Signed_In AT : 2020/03/22 03:36:08
+PASSWORD : null
+
+Mar 22, 2020 3:36:08 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:36:16 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:36:18 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 3:39:04 AM Player.Player Signin
+INFO: USER  : lana
+Signed_In AT : 2020/03/22 03:39:04
+PASSWORD : null
+
+Mar 22, 2020 3:39:04 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:39:11 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:39:17 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 3:45:27 AM Player.Player Signin
+INFO: USER  : lana
+Signed_In AT : 2020/03/22 03:45:27
+PASSWORD : null
+
+Mar 22, 2020 3:45:27 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:45:36 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:45:41 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 3:46:26 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 3:55:35 AM Player.Player Signin
+INFO: USER  : lana
+Signed_In AT : 2020/03/22 03:55:35
+PASSWORD : null
+
+Mar 22, 2020 3:55:35 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:55:40 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 3:55:56 AM cliAndMenus.Menus.Store buyTheCard
+INFO: ERROR : invalid input  IN_LINE:115
+Mar 22, 2020 3:56:13 AM cliAndMenus.Menus.Store buyTheCard
+INFO: ERROR : invalid input  IN_LINE:115
+Mar 22, 2020 3:56:30 AM cliAndMenus.Menus.Store buyTheCard
+INFO: bought this card from store : TimeRip
+Mar 22, 2020 3:56:36 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE

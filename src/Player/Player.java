@@ -184,9 +184,9 @@ public class Player {
         }
         while (!flagPass) {
             System.out.println("Enter your Password: ");
-            PlayerPassword = scanner.nextLine();
+            String pass = scanner.nextLine();
             /**check if players password is correct for the corresponding name ...*/
-            if (!PlayerPassword.equals(CorrespondingPassword)) {
+            if (!getHashedPassword(pass).equals(CorrespondingPassword)) {
                 System.out.println("Wrong password , Try again..");
             } else {
                 flagPass = true;

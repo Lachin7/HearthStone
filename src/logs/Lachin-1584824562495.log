@@ -1,0 +1,57 @@
+Mar 22, 2020 1:32:42 AM Player.Player Signup
+INFO: USER  : Lachin
+CREATED AT : 2020/03/22 01:32:42
+PASSWORD : 9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684
+
+Mar 22, 2020 1:32:42 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 1:32:49 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 1:32:52 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 1:33:00 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 1:33:07 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 1:33:13 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 1:33:17 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 1:33:23 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 1:33:26 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 1:33:29 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 1:33:35 AM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 1:34:14 AM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 1:34:24 AM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : Polymorph
+Mar 22, 2020 1:34:31 AM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 1:34:39 AM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 1:34:53 AM cliAndMenus.Menus.myCollections removeCardFromDeck
+INFO: ERROR : invalid input for deleting the card  IN_LINE:236
+Mar 22, 2020 1:35:08 AM cliAndMenus.Menus.myCollections removeCardFromDeck
+INFO: ERROR : invalid input for deleting the card  IN_LINE:236
+Mar 22, 2020 1:35:20 AM cliAndMenus.Menus.myCollections removeCardFromDeck
+INFO: USER_REMOVED_CARD_FROM_DECK : Polymorph
+Mar 22, 2020 1:35:23 AM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 1:35:27 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 1:35:31 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 1:35:36 AM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 1:35:36 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: ERROR : invalid input  IN_LINE:45
+Mar 22, 2020 2:01:12 AM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 2:01:16 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 2:01:19 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS

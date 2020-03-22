@@ -1,0 +1,21 @@
+Mar 22, 2020 3:54:26 AM Player.Player Signup
+INFO: USER  : ee
+CREATED AT : 2020/03/22 03:54:26
+PASSWORD : e950c1517ee0d7e20454d22c306c4c501a7cf11c
+
+Mar 22, 2020 3:54:26 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:54:32 AM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:54:37 AM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 3:54:42 AM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 3:54:47 AM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : Polymorph
+Mar 22, 2020 3:54:51 AM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 3:54:56 AM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 3:55:02 AM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: ERROR : invalid input for adding the card  IN_LINE:218

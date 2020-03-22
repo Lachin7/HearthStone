@@ -23,7 +23,7 @@ public class gameCLI {
     }
   //  @Expose ArrayList ALLCardsExistingInGame = getALLCardsExistingInGame();
 
-   Player currentPlayer = new Player();
+    @Expose Player currentPlayer = new Player();
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
@@ -97,6 +97,7 @@ public class gameCLI {
         while (true) {
             String answer = scanner.next();
             if (answer.equals("yes")) {
+                gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"EXITED");
                 jsonTofilePlayer(gameCLI.getInstance().currentPlayer);
                 jsonFileMakerForGame(gameCLI.getInstance());
                 startTheApp();
@@ -109,7 +110,6 @@ public class gameCLI {
                 System.out.println("Your input is not valid! Enter yes or no :  type (yes/no)");
             }
         }
-        gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"EXITED");
     }
 
     public static void exit_all() throws IOException {

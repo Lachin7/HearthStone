@@ -14,14 +14,14 @@ public class jsonForGame {
 
     public static void jsonFileMakerForGame(gameCLI gameCLI) throws IOException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileWriter fileWriter = new FileWriter("src/JSON/jsonForGame.json" ,true);
+        FileWriter fileWriter = new FileWriter("src/JSON/jsonForGame/game.json" ,true);
         gson.toJson(gameCLI, fileWriter);
         fileWriter.close();
     }
 
     public static gameCLI GameFromjson() throws IOException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileReader fileReader = new FileReader("src/JSON/jsonForGame.json");
+        FileReader fileReader = new FileReader("src/JSON/jsonForGame/game.json");
         gameCLI gameCLI = gson.fromJson(fileReader, (Type) gameCLI.class);
         fileReader.close();
         return gameCLI;
@@ -29,7 +29,7 @@ public class jsonForGame {
 
     public static void main(String[] args) throws IOException {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        FileWriter fileWriter = new FileWriter("src/JSON/jsonForGame.json" ,true);
+        FileWriter fileWriter = new FileWriter("src/JSON/jsonForGame/game.json" ,true);
 
     }
 

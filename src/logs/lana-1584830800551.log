@@ -1,0 +1,24 @@
+Mar 22, 2020 3:16:40 AM Player.Player Signup
+INFO: USER  : lana
+CREATED AT : 2020/03/22 03:16:40
+PASSWORD : e950c1517ee0d7e20454d22c306c4c501a7cf11c
+
+Mar 22, 2020 3:16:40 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:16:47 AM cliAndMenus.gameCLI exit
+INFO: EXITED
+Mar 22, 2020 3:17:06 AM Player.Player Signin
+INFO: USER  : lana
+Signed_In AT : 2020/03/22 03:17:06
+PASSWORD : e950c1517ee0d7e20454d22c306c4c501a7cf11c
+
+Mar 22, 2020 3:17:06 AM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:17:11 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 3:17:15 AM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 3:17:25 AM cliAndMenus.Menus.Store sellTheCard
+INFO: SOLD_THE_CARD : Polymorph
+Mar 22, 2020 3:17:31 AM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE

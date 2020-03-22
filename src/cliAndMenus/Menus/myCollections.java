@@ -47,7 +47,7 @@ public class myCollections extends gameCLI{
         while (!isValidInput2) {
             if (input2.equalsIgnoreCase("1") || input2.equalsIgnoreCase("see All heroes")) {
                 isValidInput2 = true;
-                System.out.println("Available heroes in this game edition are : *Mage* *Rouge* *Warlock*  \n  also your unlocked heroes are : " + gameCLI.getInstance().getCurrentPlayer().getPlayersUnlockedHeroes().toString() +  " \n go back?(y)");
+                System.out.println("Available heroes in this game edition are : *Mage* *Rouge* *Warlock*  \n  also your unlocked heroes are : " + gameCLI.getInstance().getCurrentPlayer().getPlayersUnlockedHeroes() +  " \n go back?(y)");
                 BackForHeroMenu();
             }
             if (input2.equalsIgnoreCase("2") || input2.equalsIgnoreCase("see your current hero")) {
@@ -126,7 +126,7 @@ public class myCollections extends gameCLI{
                     String input4 = scanner.nextLine();
                     if (input4.equalsIgnoreCase("1") || input4.equalsIgnoreCase("See ALL your Cards")) {
                         isValidInput4 = true;
-                        System.out.println(gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()  + " which sum up to " + gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroAllCards().size() + " cards ");
+                        System.out.println(gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()  + " which sum up to " + gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().size() + " cards ");
                         goBackToCardMenu();
                     }
                     if (input4.equalsIgnoreCase("2") || input4.equalsIgnoreCase("See your Deck Cards ")) {
@@ -148,7 +148,7 @@ public class myCollections extends gameCLI{
                         isValidInput4 = true;
                         System.out.println("the cards you can add to your deck are : \n");
                         for (Cards.card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()) {
-                            if (!gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().contains(card)) {
+                            if (!gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().contains(card)) {
                                 System.out.println(card.toString());
                             }
                         }
@@ -202,11 +202,11 @@ public class myCollections extends gameCLI{
             System.out.println("Enter the Card's name to add it to your deck : ");
             String cardName = new Scanner(System.in).nextLine();
             for (card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()) {
-                if(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().size()>= 15){
+                if(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().size()> 15){
                     System.out.println("your deck is full and it has 10 cards , remove some card to be able to add cards ! ");
                     removeCardFromDeck();
                 }
-                if (Collections.frequency(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards(),card) <= 1 && card.getName().equalsIgnoreCase(cardName)   && (card.getHeroClass().toString().equalsIgnoreCase(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().toString()) || card.getHeroClass().toString().equalsIgnoreCase("NEUTRAL"))) {
+                if (Collections.frequency(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards(),card) < 1 && card.getName().equalsIgnoreCase(cardName)   && (card.getHeroClass().toString().equalsIgnoreCase(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().toString()) || card.getHeroClass().toString().equalsIgnoreCase("NEUTRAL"))) {
                     gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().add(card);
                     gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().add(card);
                     System.out.println(cardName + "has been added to your deck successfully !");

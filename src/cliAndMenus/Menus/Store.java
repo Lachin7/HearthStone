@@ -25,14 +25,16 @@ public class Store extends gameCLI {
             if (input1.equalsIgnoreCase("1") || input1.equalsIgnoreCase("See Cards in store")) {
                 isValidInput1 = true;
                 while (!isValidInput2){
-                    System.out.println("choose to see 1.the cards you can sell them 2.the cards you can by from store (1/2) :");
+                    System.out.println("choose to see 1.the cards you can sell them 2.the cards you can buy from store (1/2) :");
                     String input2 = scanner.nextLine();
                     if(input2.equalsIgnoreCase("1")||input2.equalsIgnoreCase("the cards you can sell them")){
                         showCardsUCanSell();
-                        isValidInput2 = true;
+                        goToStoreMenu();
+                        break;
                     }
                     if(input2.equalsIgnoreCase("2")||input2.equalsIgnoreCase("the cards you can buy from store")){
-                        getALLCardsExistingInGame();
+                        System.out.println(getALLCardsExistingInGame());
+                        goToStoreMenu();
                         isValidInput2 = true;
                     }
                     if(input2.equalsIgnoreCase("back")){
@@ -82,14 +84,22 @@ public class Store extends gameCLI {
                 }
             }
             if(input1.equalsIgnoreCase("4") || input1.equalsIgnoreCase("see your wallet")){
-                isValidInput1 =true;
                 System.out.println("You have "+ gameCLI.getInstance().getCurrentPlayer().getPlayerCoins()+ " coins!");
+                goToStoreMenu();
+                isValidInput1 =true;
+            }
+            if(input1.equalsIgnoreCase("back")){
+                gameCLI.getInstance().goToMenus();
+                isValidInput1 =true;
+            }
+            else {
+                System.out.println("invalid input ");
             }
         }
     }
     public static void buyTheCard() throws IOException {
         Boolean isValid = false;
-        while (!isValid) {
+      o :  while (!isValid) {
             System.out.println("Enter the Card's name to buy it from store");
             String cardName = new Scanner(System.in).nextLine();
             for (Cards.card card : getALLCardsExistingInGame()) {
@@ -102,7 +112,7 @@ public class Store extends gameCLI {
                         gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"bought this card from store : " + card.toString());
                         jsonTofilePlayer(gameCLI.getInstance().getCurrentPlayer());
                         isValid = true;
-                        break;
+                        break o;
                     }
                     else {
                         System.out.println("you don't have enough coins to buy this card :'(  ...");
