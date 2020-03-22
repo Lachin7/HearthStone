@@ -1,7 +1,13 @@
 package cliAndMenus;
 
+import Cards.card;
+import Heroes.Hero;
+import Heroes.Mage;
+import Heroes.Rogue;
+import Heroes.Warlock;
 import Player.Player;
-import cliAndMenus.Menus.*;
+import cliAndMenus.Menus.Store;
+import cliAndMenus.Menus.myCollections;
 import com.google.gson.annotations.Expose;
 
 import java.io.IOException;
@@ -21,7 +27,16 @@ public class gameCLI {
     public static gameCLI getInstance(){
         return gameCli;
     }
-  //  @Expose ArrayList ALLCardsExistingInGame = getALLCardsExistingInGame();
+
+    @Expose ArrayList<card> ALLCardsExistingInGame = new ArrayList<>();
+    @Expose ArrayList<Hero> ALLHeroesExistingInGame = new ArrayList<>();
+
+    public void setALLCardsExistingInGame(ArrayList<card> ALLCardsExistingInGame) {
+        this.ALLCardsExistingInGame = ALLCardsExistingInGame;
+    }
+    public void setALLHeroesExistingInGame(ArrayList<Hero> ALLHeroesExistingInGame) {
+        this.ALLHeroesExistingInGame = ALLHeroesExistingInGame;
+    }
 
     @Expose Player currentPlayer = new Player();
     public Player getCurrentPlayer() {
@@ -31,9 +46,12 @@ public class gameCLI {
         this.currentPlayer = currentPlayer;
     }
 
+
     public  void startTheApp() throws IOException {
         System.out.println(" ******************************** \n      **** HEARTH STONE ****      \n ********************************");
         Scanner scanner = new Scanner(System.in);
+        setALLCardsExistingInGame(getALLCardsExistingInGame());
+        ALLHeroesExistingInGame.add(new Mage());ALLHeroesExistingInGame.add(new Rogue());ALLHeroesExistingInGame.add(new Warlock());
       o :  while (true){
           System.out.println("already have an account?(yes/no/exit/exit_all)");
             switch (scanner.nextLine()) {

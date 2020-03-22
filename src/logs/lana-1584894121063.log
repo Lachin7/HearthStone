@@ -1,0 +1,11 @@
+Mar 22, 2020 8:52:01 PM Player.Player Signup
+INFO: USER  : lana
+CREATED AT : 2020/03/22 20:52:01
+PASSWORD : 9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684
+
+Mar 22, 2020 8:52:01 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 8:52:06 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 8:52:08 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU

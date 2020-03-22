@@ -1,0 +1,76 @@
+Mar 22, 2020 9:09:24 PM Player.Player Signup
+INFO: USER  : Lachin
+CREATED AT : 2020/03/22 21:09:24
+PASSWORD : 9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684
+
+Mar 22, 2020 9:09:24 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 9:09:31 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 9:09:52 PM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 9:09:58 PM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 9:10:05 PM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 9:10:10 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 9:10:16 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 9:10:21 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 9:10:25 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 9:10:35 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : Polymorph
+Mar 22, 2020 9:10:39 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 9:10:43 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 9:10:47 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: ERROR : invalid input for adding the card  IN_LINE:218
+Mar 22, 2020 9:10:57 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : RollingFireball
+Mar 22, 2020 9:11:01 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 9:11:21 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 9:11:30 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: ERROR : invalid input for adding the card  IN_LINE:218
+Mar 22, 2020 9:11:47 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : backstab
+Mar 22, 2020 9:11:50 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 9:11:53 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 9:11:58 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 9:12:04 PM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 9:12:04 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 9:12:15 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 9:12:19 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 9:12:25 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 9:12:31 PM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 9:12:40 PM cliAndMenus.Menus.Store sellTheCard
+INFO: SOLD_THE_CARD : TimeRip
+Mar 22, 2020 9:12:59 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 9:13:03 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 9:13:10 PM cliAndMenus.gameCLI exit
+INFO: EXITED
+Mar 22, 2020 9:13:23 PM Player.Player Signin
+INFO: USER  : Lachin
+Signed_In AT : 2020/03/22 21:13:23
+PASSWORD : 9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684
+
+Mar 22, 2020 9:13:23 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 9:13:31 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS

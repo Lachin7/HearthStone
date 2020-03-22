@@ -93,9 +93,6 @@ public class card{
         return this.toString().equals(ex.toString()) ;
     }
 
-    public static void main(String[] args) {
-
-    }
 
     //    public Long getCardCost(card card){
 //        if(card.rarity == Cards.card.rarity.COMMON){

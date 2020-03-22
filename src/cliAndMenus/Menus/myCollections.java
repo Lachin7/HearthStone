@@ -198,11 +198,15 @@ public class myCollections {
         gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"BACK_TO_CARD_MENU");
     }
 
-    public static void addCardToDeck() throws IOException {
+    public  void addCardToDeck() throws IOException {
         Boolean isValid = false;
       o :  while (!isValid) {
-            System.out.println("Enter the Card's name to add it to your deck : ");
+            System.out.println("Enter the Card's name to add it to your deck : /back ");
             String cardName = new Scanner(System.in).nextLine();
+            if(cardName.equalsIgnoreCase("back")){
+                goToCardMenu();
+                break ;
+            }
             for (card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()) {
                 if(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().size()> 15){
                     System.out.println("your deck is full and it has 10 cards , remove some card to be able to add cards ! ");
@@ -220,11 +224,15 @@ public class myCollections {
         }
         jsonTofilePlayer(gameCLI.getInstance().getCurrentPlayer());
     }
-    public static void removeCardFromDeck() throws IOException {
+    public  void removeCardFromDeck() throws IOException {
         Boolean isValid = false;
        o: while (!isValid) {
-            System.out.println("Enter the Card's name to delete it from your deck");
+            System.out.println("Enter the Card's name to delete it from your deck /back");
             String cardName = new Scanner(System.in).nextLine();
+           if(cardName.equalsIgnoreCase("back")){
+               goToCardMenu();
+               break ;
+           }
             for (card card : gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards()) {
                 if (card.getName().equalsIgnoreCase(cardName)) {
                     gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().remove(card);

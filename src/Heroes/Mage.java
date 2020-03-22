@@ -12,15 +12,6 @@ import static cliAndMenus.Menus.myCollections.getALLCardsExistingInGame;
 public class Mage extends Hero {
 
      @Expose String name = "Mage";
-//    @Override
-//    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
-//        this.MageDeckCards = heroDeckCards;
-//    }
-//    @Override
-//    public ArrayList<card> getHeroDeckCards() {
-//
-//        return this.MageDeckCards;
-//    }
 
     @Expose public ArrayList<card> MageAllCards =new ArrayList<>();
     @Override
@@ -92,4 +83,15 @@ public class Mage extends Hero {
 //        if(card.getHeroClass() == Cards.card.HeroClass.WARLOCK){
 //           WarlockAllCards.add(card);
 //        }
+
+    //    @Override
+//    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+//        this.MageDeckCards = heroDeckCards;
+//    }
+//    @Override
+//    public ArrayList<card> getHeroDeckCards() {
+//
+//        return this.MageDeckCards;
+//    }
+
 }
