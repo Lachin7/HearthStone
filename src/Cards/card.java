@@ -13,6 +13,7 @@ public class card{
     @Expose private type type;
     @Expose private HeroClass heroClass;
     @Expose private int price;
+
     /** defining getters and setters here */
     public int getManaCost() {
         return manaCost;
@@ -81,9 +82,22 @@ public class card{
     @Override
     public String toString() {
        //  return "\" {Card name : \""    + "\"" + this.name + "\""   + "\"" +", mana Cost :"+ "\""   + "\""  + this.manaCost + ", hero Calss : " + "\"" + this.heroClass + ", type : " + this.type + ", rarity : " + this.rarity + ", description : " + this.description + "}  ";
-    return this.name + "";
+    return this.getName();
     }
-//    public Long getCardCost(card card){
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || this.getClass() != obj.getClass()) return false;
+        if (this == obj) return true;
+        card ex = (card) obj;
+        return this.toString().equals(ex.toString()) ;
+    }
+
+    public static void main(String[] args) {
+
+    }
+
+    //    public Long getCardCost(card card){
 //        if(card.rarity == Cards.card.rarity.COMMON){
 //            return new Long(5);
 //        }

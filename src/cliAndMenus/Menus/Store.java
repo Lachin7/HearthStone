@@ -10,7 +10,7 @@ import static JSON.jsonForCards.jsonForCards.creatCardFromjson;
 import static JSON.jsonForPlayers.jsonForPlayers.jsonTofilePlayer;
 import static cliAndMenus.Menus.myCollections.getALLCardsExistingInGame;
 
-public class Store extends gameCLI {
+public class Store{
 
     private static Store store = new Store();
     public static Store getInstance(){return store;}
@@ -69,7 +69,7 @@ public class Store extends gameCLI {
                 isValidInput1 =true;
                 sellTheCard();
                 o : while (true) {
-                    System.out.println("1.back to Store Menu/ 2.sell another card? (1/2)");
+                    System.out.println("1.back to Store Menu/ 2.sell card? (1/2)");
                     i : switch (scanner.nextLine()) {
                         case "1":
                             goToStoreMenu();
@@ -79,7 +79,6 @@ public class Store extends gameCLI {
                             break o ;
                         default:
                             System.out.println("invalid input");
-                            break i;
                     }
                 }
             }
@@ -105,7 +104,7 @@ public class Store extends gameCLI {
             for (Cards.card card : getALLCardsExistingInGame()) {
                 if (card.getName().equalsIgnoreCase(cardName)&& (card.getHeroClass().toString().equalsIgnoreCase(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().toString())||card.getHeroClass().toString().equalsIgnoreCase("NEUTRAL"))) {
                     if(card.getPrice() <= gameCLI.getInstance().getCurrentPlayer().getPlayerCoins()) {
-                        gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().add(card);
+                        gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().add(card);
                         gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().add(card);
                         gameCLI.getInstance().getCurrentPlayer().setPlayerCoins(gameCLI.getInstance().getCurrentPlayer().getPlayerCoins() - card.getPrice());
                         System.out.println(cardName + "has been bought from store successfully !");
@@ -128,12 +127,8 @@ public class Store extends gameCLI {
         System.out.println("lets see which cards you can sell : ");
         for(card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()){
             boolean canSell = true;
-            for (Hero hero : gameCLI.getInstance().getCurrentPlayer().getPlayersUnlockedHeroes()){
-                for(card card1 : hero.getHeroDeckCards()){
-                    if(card == card1){
-                        canSell = false;
-                    }
-                }
+            if(gameCLI.getInstance().getCurrentPlayer().MageDeckCards.contains(card)||gameCLI.getInstance().getCurrentPlayer().RogueDeckCards.contains(card)||gameCLI.getInstance().getCurrentPlayer().WarlockDeckCards.contains(card)){
+                canSell =false;
             }
             if(canSell==true){
                 System.out.println(card.toString());
@@ -143,21 +138,22 @@ public class Store extends gameCLI {
     public  void sellTheCard() throws IOException {
         showCardsUCanSell();
         System.out.println("enter the cards name for sell : ");
-        card inputCard = creatCardFromjson(new Scanner(System.in).nextLine());
-        boolean canSell = true;
-        for (Hero hero : gameCLI.getInstance().getCurrentPlayer().getPlayersUnlockedHeroes()){
-            for(card card1 : hero.getHeroDeckCards()){
-                if(inputCard == card1){
-                    canSell = false;
-                }
+        String inputCard = new Scanner(System.in).nextLine();
+        Boolean canSell = true;
+            if(gameCLI.getInstance().getCurrentPlayer().MageDeckCards.contains(inputCard)||gameCLI.getInstance().getCurrentPlayer().RogueDeckCards.contains(inputCard)||gameCLI.getInstance().getCurrentPlayer().WarlockDeckCards.contains(inputCard)){
+                canSell =false;
             }
-        }
         if(canSell==true){
-            gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().remove(inputCard); gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().remove(inputCard);
-            gameCLI.getInstance().getCurrentPlayer().setPlayerCoins(gameCLI.getInstance().getCurrentPlayer().getPlayerCoins() + inputCard.getPrice() - 4 );
-            gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"SOLD_THE_CARD : " + inputCard.toString());
+            card cardi = creatCardFromjson(inputCard);
+            gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().remove(gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().indexOf(cardi));
+            gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().remove(cardi);
+            gameCLI.getInstance().getCurrentPlayer().setPlayerCoins(gameCLI.getInstance().getCurrentPlayer().getPlayerCoins() + cardi.getPrice() - 4 );
+            gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"SOLD_THE_CARD : " + cardi.toString());
             jsonTofilePlayer(gameCLI.getInstance().getCurrentPlayer());
             System.out.println("you sold your card successfully");
+        }
+        else {
+            System.out.println("invalid ! ");
         }
 
     }

@@ -11,15 +11,16 @@ import static cliAndMenus.Menus.myCollections.getALLCardsExistingInGame;
 
 public class Rogue extends Hero {
 
-    @Expose ArrayList<card> RogueDeckCards =new ArrayList<>(); @Expose String name = "Rogue";
-    @Override
-    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
-        this.RogueDeckCards = heroDeckCards;
-    }
-    @Override
-    public ArrayList<card> getHeroDeckCards() {
-        return this.RogueDeckCards;
-    }
+ //   @Expose ArrayList<card> RogueDeckCards =new ArrayList<>();
+    @Expose String name = "Rogue";
+//    @Override
+//    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+//        this.RogueDeckCards = heroDeckCards;
+//    }
+//    @Override
+//    public ArrayList<card> getHeroDeckCards() {
+//        return this.RogueDeckCards;
+//    }
 
     @Expose public ArrayList<card> RogueAllCards =new ArrayList<>();
     @Override

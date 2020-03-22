@@ -1,0 +1,108 @@
+Mar 22, 2020 3:30:22 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 15:30:22
+PASSWORD : null
+
+Mar 22, 2020 3:30:22 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 3:43:13 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:43:21 PM cliAndMenus.Menus.myCollections goToHeroMenu
+INFO: OPENED_HEROES_MENU
+Mar 22, 2020 3:43:27 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 3:43:30 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 3:43:47 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 4:47:50 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 16:47:50
+PASSWORD : null
+
+Mar 22, 2020 4:47:50 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 4:47:59 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 4:48:09 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 4:51:22 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 16:51:22
+PASSWORD : null
+
+Mar 22, 2020 4:51:22 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 4:51:29 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 4:51:32 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 4:52:04 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 16:52:04
+PASSWORD : null
+
+Mar 22, 2020 4:52:04 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 4:52:11 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 4:52:14 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 4:57:05 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 4:58:08 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 4:58:50 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:01:26 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:03:01 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 17:03:01
+PASSWORD : null
+
+Mar 22, 2020 5:03:01 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:03:07 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 5:03:15 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:03:55 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:04:55 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:19:49 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 17:19:49
+PASSWORD : null
+
+Mar 22, 2020 5:19:49 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:19:54 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 5:19:56 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:21:31 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 17:21:31
+PASSWORD : null
+
+Mar 22, 2020 5:21:31 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:21:38 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 5:21:42 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:27:37 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:29:19 PM Player.Player Signin
+INFO: USER  : cara
+Signed_In AT : 2020/03/22 17:29:19
+PASSWORD : null
+
+Mar 22, 2020 5:29:19 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:29:27 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 5:29:29 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU

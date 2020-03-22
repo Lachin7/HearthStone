@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.logging.Level;
 import static JSON.jsonForPlayers.jsonForPlayers.jsonTofilePlayer;
 
-public class myCollections extends gameCLI{
+public class myCollections {
 
     private static myCollections collections = new myCollections();
     public static myCollections getInstance(){return collections;}
@@ -131,14 +131,14 @@ public class myCollections extends gameCLI{
                     }
                     if (input4.equalsIgnoreCase("2") || input4.equalsIgnoreCase("See your Deck Cards ")) {
                         isValidInput4 = true;
-                        System.out.println(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards() + " which sum up to " + gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().size() + " cards ");
+                        System.out.println(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards() + " which sum up to " + gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().size() + " cards ");
                         goBackToCardMenu();
                     }
                     if (input4.equalsIgnoreCase("3") || input4.equalsIgnoreCase("See the Cards you can add to your Deck")) {
                         isValidInput4 = true;
                         System.out.println("the cards you can add to your deck are : \n");
                         for (Cards.card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()) {
-                            if (Collections.frequency(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards(),card) <= 1) {
+                            if (Collections.frequency(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards(),card) <= 1) {
                                 System.out.println(card.toString());
                             }
                         }
@@ -148,7 +148,9 @@ public class myCollections extends gameCLI{
                         isValidInput4 = true;
                         System.out.println("the cards you can add to your deck are : \n");
                         for (Cards.card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()) {
-                            if (!gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().contains(card)) {
+                         //   System.out.println(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards());
+                            Boolean flag = !(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().toString().contains(card.toString()));
+                            if (!(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().contains(card))) {
                                 System.out.println(card.toString());
                             }
                         }
@@ -202,14 +204,13 @@ public class myCollections extends gameCLI{
             System.out.println("Enter the Card's name to add it to your deck : ");
             String cardName = new Scanner(System.in).nextLine();
             for (card card : gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards()) {
-                if(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().size()> 15){
+                if(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().size()> 15){
                     System.out.println("your deck is full and it has 10 cards , remove some card to be able to add cards ! ");
                     removeCardFromDeck();
                 }
-                if (Collections.frequency(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards(),card) < 1 && card.getName().equalsIgnoreCase(cardName)   && (card.getHeroClass().toString().equalsIgnoreCase(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().toString()) || card.getHeroClass().toString().equalsIgnoreCase("NEUTRAL"))) {
-                    gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().add(card);
-                    gameCLI.getInstance().getCurrentPlayer().getALLPlayersCards().add(card);
-                    System.out.println(cardName + "has been added to your deck successfully !");
+                if (Collections.frequency(gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards(),card) <= 1 && card.getName().equalsIgnoreCase(cardName)   && (card.getHeroClass().toString().equalsIgnoreCase(gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().toString()) || card.getHeroClass().toString().equalsIgnoreCase("NEUTRAL"))) {
+                    gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().add(card);
+                    System.out.println(cardName + " has been added to your deck successfully !");
                     gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"USER_ADDED_CARD_TO_DECK : "+ cardName );
                     break o;
                 }
@@ -224,9 +225,9 @@ public class myCollections extends gameCLI{
        o: while (!isValid) {
             System.out.println("Enter the Card's name to delete it from your deck");
             String cardName = new Scanner(System.in).nextLine();
-            for (card card : gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards()) {
+            for (card card : gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards()) {
                 if (card.getName().equalsIgnoreCase(cardName)) {
-                    gameCLI.getInstance().getCurrentPlayer().getPlayersChoosedHero().getHeroDeckCards().remove(card);
+                    gameCLI.getInstance().getCurrentPlayer().getPlayersDeckCards().remove(card);
                     System.out.println(cardName + " has been deleted from your deck successfully !");
                     gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO, "USER_REMOVED_CARD_FROM_DECK : " + cardName);
                     break o;
@@ -262,7 +263,6 @@ public class myCollections extends gameCLI{
         return arrayList;
     }
 
-    @Override
     public void help() throws IOException {
         gameCLI.getInstance().getCurrentPlayer().getPlayerLOGGER().log(Level.INFO,"OPENED_HELP");
         System.out.println("Heroes : you can see game and your heroes here or change your hero :) \n  Cards : you can choose to see your cards , add or remove cards here \n back to collections menu?");

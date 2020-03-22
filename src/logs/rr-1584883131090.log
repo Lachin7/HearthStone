@@ -1,0 +1,73 @@
+Mar 22, 2020 5:48:51 PM Player.Player Signup
+INFO: USER  : rr
+CREATED AT : 2020/03/22 17:48:51
+PASSWORD : e950c1517ee0d7e20454d22c306c4c501a7cf11c
+PLAYER_DELETED_AT :  2020/03/22 17:54:14
+
+
+Mar 22, 2020 5:48:51 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:48:57 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 5:48:59 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:49:09 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:49:26 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:49:45 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:49:48 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:50:03 PM cliAndMenus.Menus.myCollections goToCollectionsMenu
+INFO: OPENED_COLLECTIONS_MENU
+Mar 22, 2020 5:50:07 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:50:12 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 5:50:17 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : Polymorph
+Mar 22, 2020 5:50:22 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:50:27 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 5:50:33 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: ERROR : invalid input for adding the card  IN_LINE:218
+Mar 22, 2020 5:50:48 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : RollingFireball
+Mar 22, 2020 5:50:53 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:50:57 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 5:51:04 PM cliAndMenus.Menus.myCollections removeCardFromDeck
+INFO: USER_REMOVED_CARD_FROM_DECK : Polymorph
+Mar 22, 2020 5:51:07 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:51:12 PM cliAndMenus.Menus.myCollections chooseTheHero
+INFO: CHANGED_HERO
+Mar 22, 2020 5:51:19 PM cliAndMenus.Menus.myCollections addCardToDeck
+INFO: USER_ADDED_CARD_TO_DECK : Polymorph
+Mar 22, 2020 5:51:22 PM cliAndMenus.Menus.myCollections goToCardMenu
+INFO: OPENED_CARD_MENU
+Mar 22, 2020 5:51:26 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS
+Mar 22, 2020 5:51:34 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 5:51:50 PM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 5:51:50 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 5:53:14 PM cliAndMenus.Menus.Store buyTheCard
+INFO: bought this card from store : Polymorph
+Mar 22, 2020 5:53:19 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 5:53:24 PM cliAndMenus.Menus.Store showCardsUCanSell
+INFO: SHOW_CARDS_USER_CAN_SELL
+Mar 22, 2020 5:53:31 PM cliAndMenus.Menus.Store sellTheCard
+INFO: SOLD_THE_CARD : TimeRip
+Mar 22, 2020 5:53:36 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 5:53:38 PM cliAndMenus.Menus.Store goToStoreMenu
+INFO: OPENED_STORE
+Mar 22, 2020 5:53:45 PM cliAndMenus.gameCLI goToMenus
+INFO: OPENED_MENUS

@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public class  Hero {
 
-   ArrayList<card> HeroDeckCards =new ArrayList<>();
-   public ArrayList<card> getHeroDeckCards() {
-      return HeroDeckCards;
-   }
-   public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
-      HeroDeckCards = heroDeckCards;
-   }
+//   ArrayList<card> HeroDeckCards =new ArrayList<>();
+//   public ArrayList<card> getHeroDeckCards() {
+//      return HeroDeckCards;
+//   }
+//   public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+//      HeroDeckCards = heroDeckCards;
+//   }
 
    ArrayList<card> HeroAllCards = new ArrayList<>();
    public ArrayList<card> getHeroAllCards() throws IOException {

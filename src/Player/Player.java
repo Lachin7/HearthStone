@@ -26,6 +26,10 @@ public class Player {
     @Expose private ArrayList<card> PlayersDeckCards = new ArrayList<>();
     @Expose private ArrayList<Hero> PlayersUnlockedHeroes = new ArrayList<>();
     @Expose public Mage PlayersMage = new Mage(); @Expose public  Rogue PlayersRogue = new Rogue(); @Expose public  Warlock PlayersWarlock = new Warlock();
+    @Expose public ArrayList<card> MageDeckCards =new ArrayList<>();
+    @Expose public ArrayList<card> RogueDeckCards =new ArrayList<>();
+    @Expose public ArrayList<card> WarlockDeckCards =new ArrayList<>();
+
     private Logger PlayerLOGGER = Logger.getLogger("PlayerLog");
 
     /** defining getters and setters for the fields  */
@@ -75,7 +79,15 @@ public class Player {
     }
 
     public ArrayList<card> getPlayersDeckCards() {
-        return this.PlayersChoosedHero.getHeroDeckCards();
+        if(this.PlayersChoosedHero == PlayersMage){
+            return MageDeckCards;
+        }
+        if(this.PlayersChoosedHero == PlayersRogue){
+            return RogueDeckCards;
+        }
+        else {
+            return WarlockDeckCards;
+        }
     }
 
     public void setPlayersDeckCards(ArrayList<card> playersDeckCards) {
@@ -121,7 +133,7 @@ public class Player {
         this.setPlayerCoins(50);
         this.setPlayersChoosedHero(PlayersMage);
         this.setPlayerID(System.currentTimeMillis());
-        this.PlayersMage.setHeroDeckCards(new ArrayList<card>(Arrays.asList(creatCardFromjson("Polymorph"),creatCardFromjson("RollingFireball"),creatCardFromjson("MurlocRaider"),creatCardFromjson("MalygossExplosion"),creatCardFromjson("MalygossNova"),creatCardFromjson("Backstab"),creatCardFromjson("GoblinBomb"),creatCardFromjson("LostSpirit"),creatCardFromjson("SerratedTooth"),creatCardFromjson("MagmaRager"))));
+        this.MageDeckCards = (new ArrayList<card>(Arrays.asList(creatCardFromjson("Polymorph"),creatCardFromjson("RollingFireball"),creatCardFromjson("MurlocRaider"),creatCardFromjson("MalygossExplosion"),creatCardFromjson("MalygossNova"),creatCardFromjson("Backstab"),creatCardFromjson("GoblinBomb"),creatCardFromjson("LostSpirit"),creatCardFromjson("SerratedTooth"),creatCardFromjson("MagmaRager"))));
         for(card card : getALLCardsExistingInGame()){
             if(card.getHeroClass() == Cards.card.HeroClass.MAGE){
                 this.PlayersMage.getHeroAllCards().add(card);
@@ -135,7 +147,7 @@ public class Player {
         }
      //   this.PlayersDeckCards = PlayersMage.getHeroDeckCards();
         this.setALLPlayersCards((new ArrayList<card>(Arrays.asList(creatCardFromjson("Polymorph"),creatCardFromjson("RollingFireball"),creatCardFromjson("MurlocRaider"),creatCardFromjson("MalygossExplosion"),creatCardFromjson("MalygossNova"),creatCardFromjson("Backstab"),creatCardFromjson("GoblinBomb"),creatCardFromjson("LostSpirit"),creatCardFromjson("SerratedTooth"),creatCardFromjson("MagmaRager"),creatCardFromjson("TimeRip"),creatCardFromjson("BlinkFox"),creatCardFromjson("HungryCrab")))));
-        this.setPlayersDeckCards(this.getPlayersChoosedHero().getHeroDeckCards());
+       // this.setPlayersDeckCards(this.getPlayersChoosedHero().getHeroDeckCards());
         this.PlayersUnlockedHeroes.add(PlayersMage);
         jsonTofilePlayer(this);
         gameCLI.getInstance().setCurrentPlayer(this);
@@ -207,7 +219,7 @@ public class Player {
         while (!isvalid) {
             System.out.println("If you are sure of DELETING your account, enter your Password : ");
             String pass = scanner.nextLine();
-            if (pass.equals(this.PlayerPassword)) {
+            if (getHashedPassword(pass).equals(this.PlayerPassword)) {
                 isvalid = true;
                 /** adding deleted to the log file in line 4 */
                 File file = new File("src/logs/"+ getPlayerName()+"-"+getPlayerID()+".log");

@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import static cliAndMenus.Menus.myCollections.getALLCardsExistingInGame;
 
 public class Warlock extends Hero {
-    @Expose ArrayList<card> WarlockDeckCards =new ArrayList<>(); @Expose String name = "Warlock";
-    @Override
-    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
-        this.WarlockDeckCards = heroDeckCards;
-    }
+ //   @Expose ArrayList<card> WarlockDeckCards =new ArrayList<>();
+    @Expose String name = "Warlock";
+//    @Override
+//    public void setHeroDeckCards(ArrayList<card> heroDeckCards) {
+//        this.WarlockDeckCards = heroDeckCards;
+//    }
 
     @Expose public ArrayList<card> WarlockAllCards =new ArrayList<>();
     @Override
@@ -31,11 +32,11 @@ public class Warlock extends Hero {
     public String getName() {
         return "Warlock";
     }
-
-    @Override
-    public ArrayList<card> getHeroDeckCards() {
-        return this.WarlockDeckCards;
-    }
+//
+//    @Override
+//    public ArrayList<card> getHeroDeckCards() {
+//        return this.WarlockDeckCards;
+//    }
     public Warlock() {
         this.HP = 35;
         for(Cards.card card : getALLCardsExistingInGame()) {
